@@ -1,0 +1,67 @@
+{
+  "id": "short-drama",
+  "version": "0.1",
+  "name": "AI short drama",
+  "description": "One idea to a short drama: script, characters, storyboard shots, shot videos, and narration. Composes the character-creation skill per character.",
+  "inputs": [
+    { "key": "idea", "type": "text", "required": true, "label": "One-line drama idea" }
+  ],
+  "steps": [
+    {
+      "id": "script",
+      "kind": "reason",
+      "promptRef": "prompts/script.md",
+      "inputs": [{ "from": "input:idea", "role": "idea" }],
+      "output": { "type": "text" }
+    },
+    {
+      "id": "cast",
+      "kind": "reason",
+      "promptRef": "prompts/extract-characters.md",
+      "inputs": [{ "from": "step:script", "role": "script" }],
+      "output": { "type": "text", "list": true }
+    },
+    {
+      "id": "characters",
+      "kind": "skill",
+      "skillRef": "character-creation@1.0",
+      "forEach": "step:cast",
+      "inputs": [{ "from": "item", "role": "description" }]
+    },
+    {
+      "id": "storyboard",
+      "kind": "reason",
+      "promptRef": "prompts/storyboard.md",
+      "inputs": [
+        { "from": "step:script", "role": "script" },
+        { "from": "step:characters", "role": "characters" }
+      ],
+      "output": { "type": "text", "list": true }
+    },
+    {
+      "id": "shotImage",
+      "kind": "capability",
+      "capability": "image.generate",
+      "forEach": "step:storyboard",
+      "promptRef": "prompts/shot-image.md",
+      "inputs": [
+        { "from": "item", "role": "prompt" },
+        { "from": "step:characters", "role": "reference" }
+      ],
+      "values": { "aspect": "16:9" }
+    },
+    {
+      "id": "shotVideo",
+      "kind": "capability",
+      "capability": "video.generate",
+      "forEach": "step:storyboard",
+      "promptRef": "prompts/shot-video.md",
+      "inputs": [
+        { "from": "item", "role": "prompt" },
+        { "from": "step:shotImage[item]", "role": "first_frame" }
+      ],
+      "values": { "duration": 15, "resolution": "1080p", "aspect": "16:9" }
+    }
+  ],
+  "output": { "type": "video", "from": "step:shotVideo", "list": true }
+}

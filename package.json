@@ -1,0 +1,26 @@
+{
+  "name": "sorryassets-skills",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Standard Agent Skills for SorryAssets AIGC workflows.",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leozejia/sorryassets-skills.git"
+  },
+  "keywords": [
+    "agent-skills",
+    "sorryassets",
+    "codex",
+    "claude-code",
+    "aigc"
+  ],
+  "files": [
+    "README.md",
+    "catalog.json",
+    "skills"
+  ],
+  "scripts": {
+    "test": "node scripts/validate.mjs"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "character-creation",
+  "version": "1.0",
+  "name": "Create a character",
+  "description": "Draft a character image from a description, draw 5 style variants, and keep the one the user picks.",
+  "inputs": [
+    { "key": "description", "type": "text", "required": true, "label": "Character description" }
+  ],
+  "steps": [
+    {
+      "id": "draft",
+      "kind": "capability",
+      "capability": "image.generate",
+      "inputs": [{ "from": "input:description", "role": "prompt" }],
+      "promptRef": "prompts/character.md",
+      "values": { "aspect": "3:4" },
+      "variants": {
+        "count": 5,
+        "vary": {
+          "style": ["anime", "photoreal", "ink", "3d", "watercolor"]
+        }
+      },
+      "select": { "mode": "one", "by": "user" }
+    }
+  ],
+  "output": { "type": "image", "from": "step:draft" }
+}
