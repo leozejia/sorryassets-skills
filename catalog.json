@@ -3,6 +3,7 @@
   "kind": "sorryassets-skills-catalog",
   "updatedAt": "2026-07-09",
   "repository": "leozejia/sorryassets-skills",
+  "repoUrl": "https://github.com/leozejia/sorryassets-skills",
   "install": {
     "all": "npx skills add leozejia/sorryassets-skills --skill '*' -a codex -a claude-code -g -y",
     "single": "npx skills add leozejia/sorryassets-skills --skill {skill} -a codex -a claude-code -g -y"
@@ -51,7 +52,34 @@
         "en": "Start from a character description, generate five visual directions, and keep the chosen image as a reusable character reference.",
         "zh": "输入角色描述，生成五个视觉方向，并把选中的图像保存为可继续使用的角色参考。"
       },
-      "install": "npx skills add leozejia/sorryassets-skills --skill character-creation -a codex -a claude-code -g -y"
+      "bestFor": {
+        "en": "Game characters, AI comic casts, reference portraits, and style exploration.",
+        "zh": "游戏角色、AI 漫剧演员、参考肖像和风格探索。"
+      },
+      "inputs": {
+        "en": ["Character description"],
+        "zh": ["角色描述"]
+      },
+      "outputs": {
+        "en": ["Portrait variants", "Reusable character reference", "Creation trail"],
+        "zh": ["肖像变体", "可复用角色参考", "创作脉络"]
+      },
+      "route": "/skills/character-creation",
+      "install": "npx skills add leozejia/sorryassets-skills --skill character-creation -a codex -a claude-code -g -y",
+      "installTargets": {
+        "codex": "npx skills add leozejia/sorryassets-skills --skill character-creation -a codex -g -y",
+        "claudeCode": "npx skills add leozejia/sorryassets-skills --skill character-creation -a claude-code -g -y"
+      },
+      "proof": {
+        "nodes": {
+          "en": ["description", "5 directions", "selected image"],
+          "zh": ["角色描述", "五个方向", "选中图像"]
+        },
+        "note": {
+          "en": "Built for quick variation until the character direction feels stable.",
+          "zh": "适合快速尝试，直到角色方向稳定下来。"
+        }
+      }
     },
     {
       "id": "short-drama",
@@ -70,7 +98,34 @@
         "en": "Expand one idea into script, cast, storyboard shots, shot images, and 15-second video clips.",
         "zh": "把一个创意拆成剧本、角色、分镜、镜头图和 15 秒视频片段。"
       },
-      "install": "npx skills add leozejia/sorryassets-skills --skill short-drama -a codex -a claude-code -g -y"
+      "bestFor": {
+        "en": "Preproduction and shot planning before spending video budget.",
+        "zh": "在消耗视频预算前，先完成前期拆解和镜头规划。"
+      },
+      "inputs": {
+        "en": ["One-line drama idea"],
+        "zh": ["一句短剧创意"]
+      },
+      "outputs": {
+        "en": ["Script", "Cast", "Storyboard", "Shot images", "Video clips"],
+        "zh": ["剧本", "角色", "分镜", "镜头图", "视频片段"]
+      },
+      "route": "/skills/short-drama",
+      "install": "npx skills add leozejia/sorryassets-skills --skill short-drama -a codex -a claude-code -g -y",
+      "installTargets": {
+        "codex": "npx skills add leozejia/sorryassets-skills --skill short-drama -a codex -g -y",
+        "claudeCode": "npx skills add leozejia/sorryassets-skills --skill short-drama -a claude-code -g -y"
+      },
+      "proof": {
+        "nodes": {
+          "en": ["idea", "script", "cast", "shots", "clips"],
+          "zh": ["创意", "剧本", "角色", "镜头", "片段"]
+        },
+        "note": {
+          "en": "Start with still images, then decide which shots deserve video.",
+          "zh": "先确认镜头图，再决定哪些镜头值得生成视频。"
+        }
+      }
     }
   ]
 }
