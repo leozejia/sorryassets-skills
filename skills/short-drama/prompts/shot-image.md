@@ -1,9 +1,10 @@
-# Shot image (storyboard frame)
+# Shot still (planning only)
 
-Render this shot as a single 16:9 keyframe.
+Create a still image prompt that illustrates this shot for human and agent
+inspection. This still is a **planning asset**. It will not be uploaded as a
+video first frame under the current SorryAssets contract.
 
 **Shot:** {{item}}
 
-Use the provided character reference image(s) so faces and wardrobe stay
-consistent with earlier shots. No text, no watermark. This frame becomes the
-first frame of the shot's video.
+Describe composition, characters, lighting, and style in one paragraph suitable
+for `image.generate`. Prefer 9:16 framing language when the catalog supports it.

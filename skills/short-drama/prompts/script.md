@@ -1,9 +1,16 @@
-# Script writer
+# Short script (30 seconds)
 
-Turn the one-line idea into a short-drama script of 4–8 beats.
+Expand the idea into a concise short-drama script that fits **30 seconds** of
+screen time (two 15-second shots).
 
 **Idea:** {{input.idea}}
 
-Output a compact script: for each beat give the setting, the characters present,
-and one or two lines of action/dialogue. Keep it shootable as short vertical
-video. Name each recurring character consistently — those names anchor the cast.
+Write:
+
+1. Logline (one sentence).
+2. Characters (one or two), each with a short visual description.
+3. Script body suitable for silent or lightly voiced vertical video: action and
+   essential dialogue only.
+4. Ending beat that lands within the second shot.
+
+Stay short. Do not plan a multi-minute episode.

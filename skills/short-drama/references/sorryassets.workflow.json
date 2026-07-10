@@ -1,8 +1,8 @@
 {
   "id": "short-drama",
-  "version": "0.1",
-  "name": "AI short drama",
-  "description": "One idea to a short drama: script, characters, storyboard shots, shot videos, and narration. Composes the character-creation skill per character.",
+  "version": "0.2",
+  "name": "AI short drama (30s)",
+  "description": "One premise to a 30-second episode scaffold: script, cast, two shot prompts, planning stills, two prompt-only 15s videos, assembly notes. Agent selects intermediates. Media roles are not used for video.",
   "inputs": [
     { "key": "idea", "type": "text", "required": true, "label": "One-line drama idea" }
   ],
@@ -24,7 +24,7 @@
     {
       "id": "characters",
       "kind": "skill",
-      "skillRef": "character-creation@1.0",
+      "skillRef": "character-creation",
       "forEach": "step:cast",
       "inputs": [{ "from": "item", "role": "description" }]
     },
@@ -44,11 +44,8 @@
       "capability": "image.generate",
       "forEach": "step:storyboard",
       "promptRef": "prompts/shot-image.md",
-      "inputs": [
-        { "from": "item", "role": "prompt" },
-        { "from": "step:characters", "role": "reference" }
-      ],
-      "values": { "aspect": "16:9" }
+      "inputs": [{ "from": "item", "role": "prompt" }],
+      "values": {}
     },
     {
       "id": "shotVideo",
@@ -56,11 +53,8 @@
       "capability": "video.generate",
       "forEach": "step:storyboard",
       "promptRef": "prompts/shot-video.md",
-      "inputs": [
-        { "from": "item", "role": "prompt" },
-        { "from": "step:shotImage[item]", "role": "first_frame" }
-      ],
-      "values": { "duration": 15, "resolution": "1080p", "aspect": "16:9" }
+      "inputs": [{ "from": "item", "role": "prompt" }],
+      "values": { "duration": 15, "resolution": "720p", "aspect": "9:16" }
     }
   ],
   "output": { "type": "video", "from": "step:shotVideo", "list": true }

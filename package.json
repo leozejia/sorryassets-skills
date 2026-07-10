@@ -21,6 +21,6 @@
     "skills"
   ],
   "scripts": {
-    "test": "node scripts/validate.mjs"
+    "test": "node scripts/validate.mjs && node skills/short-drama/scripts/assemble-episode.selftest.mjs"
   }
 }

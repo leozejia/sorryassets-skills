@@ -1,7 +1,7 @@
 {
   "version": 1,
   "kind": "sorryassets-skills-catalog",
-  "updatedAt": "2026-07-09",
+  "updatedAt": "2026-07-10",
   "repository": "leozejia/sorryassets-skills",
   "repoUrl": "https://github.com/leozejia/sorryassets-skills",
   "install": {
@@ -28,8 +28,8 @@
         "zh": "视频工作流"
       },
       "description": {
-        "en": "Turn ideas, references, and frames into shot-ready video plans.",
-        "zh": "把创意、参考和关键帧组织成可执行的视频镜头计划。"
+        "en": "Turn ideas into prompt-only, shot-ready video plans.",
+        "zh": "把创意组织成可执行的 prompt-only 视频镜头计划。"
       },
       "items": ["short-drama"]
     }
@@ -38,7 +38,7 @@
     {
       "id": "character-creation",
       "name": "character-creation",
-      "status": "live",
+      "status": "preview",
       "category": "character-assets",
       "path": "skills/character-creation",
       "skillPath": "skills/character-creation/SKILL.md",
@@ -49,8 +49,8 @@
         "zh": "角色创建"
       },
       "summary": {
-        "en": "Start from a character description, generate five visual directions, and keep the chosen image as a reusable character reference.",
-        "zh": "输入角色描述，生成五个视觉方向，并把选中的图像保存为可继续使用的角色参考。"
+        "en": "Start from a character description, generate a few visual directions, and let the agent score and keep the strongest image as a reusable character reference.",
+        "zh": "输入角色描述，生成若干视觉方向，由 Agent 打分并保留最强结果作为可复用角色参考。"
       },
       "bestFor": {
         "en": "Game characters, AI comic casts, reference portraits, and style exploration.",
@@ -72,12 +72,12 @@
       },
       "proof": {
         "nodes": {
-          "en": ["description", "5 directions", "selected image"],
-          "zh": ["角色描述", "五个方向", "选中图像"]
+          "en": ["description", "planned variants", "agent selection rule"],
+          "zh": ["角色描述", "计划变体", "Agent 选择规则"]
         },
         "note": {
-          "en": "Built for quick variation until the character direction feels stable.",
-          "zh": "适合快速尝试，直到角色方向稳定下来。"
+          "en": "Preview contract only; real image E2E belongs to E1.",
+          "zh": "仅为预览契约；真实图片 E2E 属于 E1。"
         }
       }
     },
@@ -95,20 +95,20 @@
         "zh": "AI 短剧"
       },
       "summary": {
-        "en": "Expand one idea into script, cast, storyboard shots, shot images, and 15-second video clips.",
-        "zh": "把一个创意拆成剧本、角色、分镜、镜头图和 15 秒视频片段。"
+        "en": "Turn one premise into a 30-second episode: script, cast, two shots, planning stills, two prompt-only 15s clips, and one assembled local MP4.",
+        "zh": "把一句创意做成 30 秒短剧：剧本、角色、两镜分镜、规划静帧、两段 prompt-only 15 秒镜头，并本地拼成一条 MP4。"
       },
       "bestFor": {
-        "en": "Preproduction and shot planning before spending video budget.",
-        "zh": "在消耗视频预算前，先完成前期拆解和镜头规划。"
+        "en": "Autonomous 30-second short-drama production on SorryAssets desktop MCP.",
+        "zh": "在 SorryAssets 桌面 MCP 上自主完成 30 秒短剧生产。"
       },
       "inputs": {
         "en": ["One-line drama idea"],
         "zh": ["一句短剧创意"]
       },
       "outputs": {
-        "en": ["Script", "Cast", "Storyboard", "Shot images", "Video clips"],
-        "zh": ["剧本", "角色", "分镜", "镜头图", "视频片段"]
+        "en": ["Script", "Cast", "Two-shot plan", "Planning stills", "Two 15s clips", "Final episode MP4"],
+        "zh": ["剧本", "角色", "双镜头计划", "规划静帧", "两段 15 秒镜头", "终稿 MP4"]
       },
       "route": "/skills/short-drama",
       "install": "npx skills add leozejia/sorryassets-skills --skill short-drama -a codex -a claude-code -g -y",
@@ -118,12 +118,12 @@
       },
       "proof": {
         "nodes": {
-          "en": ["idea", "script", "cast", "shots", "clips"],
-          "zh": ["创意", "剧本", "角色", "镜头", "片段"]
+          "en": ["brief", "script", "cast", "two shots", "clips", "assembled episode"],
+          "zh": ["brief", "剧本", "角色", "两镜", "片段", "拼装终稿"]
         },
         "note": {
-          "en": "Start with still images, then decide which shots deserve video.",
-          "zh": "先确认镜头图，再决定哪些镜头值得生成视频。"
+          "en": "Agent chooses intermediates; video is prompt-only 15s 720p 9:16; assembly is local FFmpeg.",
+          "zh": "中间选择由 Agent 完成；视频为 prompt-only 15s 720p 9:16；拼装使用本地 FFmpeg。"
         }
       }
     }
