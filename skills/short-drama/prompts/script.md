@@ -1,16 +1,17 @@
-# Short script (30 seconds)
+# Short-form narrative script
 
-Expand the idea into a concise short-drama script that fits **30 seconds** of
-screen time (two 15-second shots).
+Turn the brief into a concise screen story that fits the runtime delivery
+constraints.
 
-**Idea:** {{input.idea}}
+Brief: {{brief}}
+
+Delivery constraints: {{duration, format, audience, dialogue, and other limits}}
 
 Write:
 
-1. Logline (one sentence).
-2. Characters (one or two), each with a short visual description.
-3. Script body suitable for silent or lightly voiced vertical video: action and
-   essential dialogue only.
-4. Ending beat that lands within the second shot.
+1. A one-sentence dramatic or persuasive spine.
+2. The characters and their narrative purpose.
+3. A script with only the action, dialogue, and sound needed on screen.
+4. A clear ending beat that resolves the brief within the target duration.
 
-Stay short. Do not plan a multi-minute episode.
+Keep the scope producible with the authorized budget and available catalog.

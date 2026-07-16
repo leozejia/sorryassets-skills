@@ -1,7 +1,7 @@
 {
   "version": 1,
   "kind": "sorryassets-skills-catalog",
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-16",
   "repository": "leozejia/sorryassets-skills",
   "repoUrl": "https://github.com/leozejia/sorryassets-skills",
   "install": {
@@ -22,14 +22,14 @@
       "items": ["character-creation"]
     },
     {
-      "id": "video-workflows",
+      "id": "narrative-video",
       "title": {
-        "en": "Video Workflows",
-        "zh": "视频工作流"
+        "en": "Narrative Video",
+        "zh": "叙事视频"
       },
       "description": {
-        "en": "Turn ideas into prompt-only, shot-ready video plans.",
-        "zh": "把创意组织成可执行的 prompt-only 视频镜头计划。"
+        "en": "Turn varied briefs into planned, generated, and locally assembled screen stories.",
+        "zh": "把不同创意简报转化为经过规划、生成和本地组装的叙事视频。"
       },
       "items": ["short-drama"]
     }
@@ -42,7 +42,6 @@
       "category": "character-assets",
       "path": "skills/character-creation",
       "skillPath": "skills/character-creation/SKILL.md",
-      "workflowPath": "skills/character-creation/references/sorryassets.workflow.json",
       "capabilities": ["image.generate"],
       "title": {
         "en": "Character Creation",
@@ -72,12 +71,12 @@
       },
       "proof": {
         "nodes": {
-          "en": ["description", "planned variants", "agent selection rule"],
-          "zh": ["角色描述", "计划变体", "Agent 选择规则"]
+          "en": ["character brief", "bounded candidates", "selected reference"],
+          "zh": ["角色简报", "有界候选", "选定参考"]
         },
         "note": {
-          "en": "Preview contract only; real image E2E belongs to E1.",
-          "zh": "仅为预览契约；真实图片 E2E 属于 E1。"
+          "en": "Preview contract only; installed real-result acceptance has not run yet.",
+          "zh": "仅为预览契约；尚未完成安装态真实结果验收。"
         }
       }
     },
@@ -85,30 +84,29 @@
       "id": "short-drama",
       "name": "short-drama",
       "status": "preview",
-      "category": "video-workflows",
+      "category": "narrative-video",
       "path": "skills/short-drama",
       "skillPath": "skills/short-drama/SKILL.md",
-      "workflowPath": "skills/short-drama/references/sorryassets.workflow.json",
       "capabilities": ["image.generate", "video.generate"],
       "title": {
         "en": "AI Short Drama",
         "zh": "AI 短剧"
       },
       "summary": {
-        "en": "Turn one premise into a 30-second episode: script, cast, two shots, planning stills, two prompt-only 15s clips, and one assembled local MP4.",
-        "zh": "把一句创意做成 30 秒短剧：剧本、角色、两镜分镜、规划静帧、两段 prompt-only 15 秒镜头，并本地拼成一条 MP4。"
+        "en": "Turn a short-form narrative brief into a script, cast, coherent shot plan, generated media, and an inspectable local video.",
+        "zh": "把短篇叙事简报转化为剧本、角色、连贯镜头计划、生成媒体和可检查的本地视频。"
       },
       "bestFor": {
-        "en": "Autonomous 30-second short-drama production on SorryAssets desktop MCP.",
-        "zh": "在 SorryAssets 桌面 MCP 上自主完成 30 秒短剧生产。"
+        "en": "Short drama, narrative promos, social stories, and other compact screen narratives.",
+        "zh": "短剧、叙事宣传片、社交故事和其他紧凑的屏幕叙事。"
       },
       "inputs": {
-        "en": ["One-line drama idea"],
-        "zh": ["一句短剧创意"]
+        "en": ["Premise or creative brief", "Optional delivery constraints"],
+        "zh": ["故事前提或创意简报", "可选交付约束"]
       },
       "outputs": {
-        "en": ["Script", "Cast", "Two-shot plan", "Planning stills", "Two 15s clips", "Final episode MP4"],
-        "zh": ["剧本", "角色", "双镜头计划", "规划静帧", "两段 15 秒镜头", "终稿 MP4"]
+        "en": ["Script", "Cast", "Shot plan", "Generated media", "Final local video"],
+        "zh": ["剧本", "角色", "镜头计划", "生成媒体", "本地成片"]
       },
       "route": "/skills/short-drama",
       "install": "npx skills add leozejia/sorryassets-skills --skill short-drama -a codex -a claude-code -g -y",
@@ -118,12 +116,12 @@
       },
       "proof": {
         "nodes": {
-          "en": ["brief", "script", "cast", "two shots", "clips", "assembled episode"],
-          "zh": ["brief", "剧本", "角色", "两镜", "片段", "拼装终稿"]
+          "en": ["brief", "script and cast", "shot plan", "generated media", "local result"],
+          "zh": ["简报", "剧本和角色", "镜头计划", "生成媒体", "本地结果"]
         },
         "note": {
-          "en": "Agent chooses intermediates; video is prompt-only 15s 720p 9:16; assembly is local FFmpeg.",
-          "zh": "中间选择由 Agent 完成；视频为 prompt-only 15s 720p 9:16；拼装使用本地 FFmpeg。"
+          "en": "Preview contract only; duration, format, model, and input roles come from each brief and the live catalog.",
+          "zh": "仅为预览契约；时长、格式、模型和输入角色由每次简报与实时目录决定。"
         }
       }
     }

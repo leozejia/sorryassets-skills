@@ -1,9 +1,9 @@
 # Character extractor
 
-From the script, list every distinct recurring character.
+From the script below, list each distinct recurring character once.
 
-**Script:** {{step.script}}
+Script: {{script}}
 
-For each character output one line: a vivid visual description (age, build, hair,
-wardrobe, defining features) suitable as an image-generation prompt. Deduplicate
-— one entry per person. This list fans out into the character-creation skill.
+For each character, provide a concise visual description suitable for later
+visual development: age range, build, face, hair, wardrobe, and defining
+features. Preserve intentional changes across the story as continuity notes.

@@ -1,107 +1,99 @@
 ---
 name: short-drama
-description: Produce a complete 30-second AI short-drama episode with SorryAssets. Use when one premise should become a script, cast, exactly two prompt-only 15-second video shots, and one assembled local MP4. The agent selects intermediate results; the human reviews the finished workflow and episode.
-license: Proprietary. See repository license terms.
-compatibility: Requires SorryAssets desktop MCP, prepaid generation balance, and local FFmpeg/ffprobe.
-metadata:
-  sorryassets.workflow: references/sorryassets.workflow.json
-  sorryassets.capabilities: image.generate, video.generate
+description: Plan and produce short-form narrative video with SorryAssets from a premise or creative brief. Use for short drama, narrative promos, social stories, or other compact screen stories that need a script, cast, shot plan, generated media, agent-owned intermediate selection, local assembly, and inspectable lineage. Derive duration, shot count, format, style, model, and input roles from the brief and live catalog instead of assuming a fixed production template.
 ---
 
-# AI Short Drama
+# Short-Form Narrative Production
 
-Turn one premise into a local 30-second, 720p, 9:16 episode with one or two
-characters, exactly two 15-second shots, visible lineage, and one imported MP4.
+Turn a compact narrative brief into a coherent local video and an inspectable
+SorryAssets project. The agent owns planning and routine creative decisions;
+the human supplies the brief and any required authorization.
 
-Ask the human only when permission or balance is missing, policy rejects the
-request, the catalog has no usable model, or a paid video retry needs approval.
-Intermediate creative choices are the agent's responsibility.
+## Inputs
 
-## Rules
+- Require a premise or creative brief.
+- Accept optional audience, target duration, delivery format, aspect ratio,
+  resolution, dialogue, style, reference assets, deadline, and spend limit.
+- Treat every omitted production value as a decision to make from the brief,
+  live catalog, local tooling, and authorized budget.
 
-- Read `get_catalog`; use only an exact declared provider, model, input role,
-  and parameter value.
-- Use low-cost images for character and planning work.
-- Submit only the two final video shots. Any retry or third paid video
-  submission needs owner approval.
-- Treat `generate_on_node` as queued work. Success requires a terminal
-  `succeeded` edge and a local file path from `list_project_graph`.
-- Video is prompt-only: never send `first_frame`, `last_frame`, reference media,
-  or source video.
-- Keep discarded candidates in the graph and record the selected node id and
-  reason in a text node.
+## Method
 
-## Workflow
+### 1. Establish the production contract
 
-### 1. Project and plan
+1. Open or create a clearly named project and call `get_catalog`.
+2. Record the brief, delivery constraints, budget, and exact compatible public
+   bindings in text nodes.
+3. Resolve material ambiguity before spending. When the brief leaves routine
+   choices open, choose them and record the rationale instead of asking the
+   human to direct every step.
 
-1. Open or create a clearly named project.
-2. Call `get_catalog`.
-3. Create text nodes for the brief, 30-second script, cast, two-shot plan, and
-   one self-contained video prompt per shot. Use the files in `prompts/` as
-   writing scaffolds.
-4. Keep the story to one setup and one payoff. Each shot must describe camera,
-   setting, named characters, and continuous action that fits 15 seconds.
+### 2. Write and break down the story
 
-`instantiate_skill` may snapshot `references/sorryassets.workflow.json`, but it
-only creates editable nodes and edges. It does not execute this Skill.
+1. Create text nodes for the script, cast, ordered shot plan, and one
+   self-contained generation prompt per shot.
+2. Derive duration and shot count from the story, requested delivery, and
+   catalog limits. If unspecified, choose the smallest coherent structure that
+   lands the intended beat.
+3. Describe each shot's purpose, duration, framing, setting, characters,
+   continuous action, transition, and sound/dialogue needs.
+4. Use the files in `prompts/` as writing scaffolds. Adapt their placeholders;
+   they are not executable workflow steps.
 
-### 2. Character and storyboard methods
+### 3. Develop and select visual material
 
-Follow the sibling `character-creation` Skill for each key character. Score
-variants for prompt fidelity, identity clarity, composition, visible defects,
-and usefulness in the next step; select the strongest usable result yourself.
+Use the `character-creation` Skill when it is installed and character identity
+matters. Otherwise apply the same bounded candidate-and-selection method with
+atomic image tools. Create planning stills only when they reduce production
+risk or are requested; do not assume they are valid video inputs.
 
-Create at most one planning still per shot. These stills help inspect the plan
-but are not inputs to video generation. If a still is unusable, refine it once;
-then stop instead of opening an unbounded variation loop.
+Keep discarded candidates visible and record every selected node id with a
+short reason. Limit exploratory generation and allow no unbounded variation
+loop.
 
-### 3. Video-shot method
+### 4. Generate final shots
 
-For each final shot, choose one `video.generate` binding from the live catalog
-that declares all three values below, then call:
+For each approved shot:
 
-```json
-{
-  "project_id": "<open project>",
-  "capability": "video.generate",
-  "provider": "<catalog provider>",
-  "model": "<catalog model>",
-  "inputs": [{ "node_id": "<shot prompt node>", "role": "prompt" }],
-  "values": { "duration": 15, "resolution": "720p", "aspect": "9:16" }
-}
-```
+1. Select an exact `video.generate` binding compatible with the required input
+   roles and output constraints.
+2. Build the request only from roles and values declared by that binding.
+   Prompt-only, reference-image, first-frame, and other shapes are valid only
+   when the live binding declares them and the shot plan needs them.
+3. Call `estimate_generation` before the first paid submission and whenever the
+   request shape or binding changes.
+4. Submit with `generate_on_node`, then poll `list_project_graph` until terminal.
+   Success requires terminal backend evidence and a local file path.
+5. Record the public model, task ref, charge, local path, and readable failure.
+   Never switch models or make a paid retry silently.
 
-Before submission, correct local schema or call-plan mistakes without spending.
-After a paid submission, poll `list_project_graph` until terminal and record the
-task ref, public model, charge, local path, and readable error. A failed paid
-video is still a submission: stop for owner approval before retrying. Never
-switch models silently.
+### 5. Assemble and deliver
 
-### 4. Episode-assembly method
-
-After both local clips succeed, run:
+If the result contains multiple compatible local clips, run:
 
 ```bash
-node skills/short-drama/scripts/assemble-episode.mjs \
-  --clip-a <absolute shot-1 path> --clip-b <absolute shot-2 path> \
-  --out <absolute episode.mp4 path> \
-  --node-a <shot-1 node id> --node-b <shot-2 node id> \
+node skills/short-drama/scripts/assemble-video.mjs \
+  --clip <absolute shot path> --node <shot node id> \
+  --clip <absolute next shot path> --node <next shot node id> \
+  --out <absolute final.mp4 path> \
   --manifest <absolute manifest.json path>
 ```
 
-The helper concatenates exactly two clips, refuses overwrite, probes the output,
-and writes the source order plus output SHA-256. Create a text node containing
-the manifest summary, call `import_file` for the MP4, and confirm its local path
-with `list_project_graph`.
+Repeat the `--clip` and `--node` pair in story order for additional shots. The
+helper accepts a bounded ordered sequence, refuses overwrite, probes the final
+video, and writes source order plus output SHA-256. For a single finished clip,
+skip assembly.
 
-### 5. Hand-off
+Create a text node containing the manifest summary, call `import_file` for a
+locally assembled result, and confirm the final local path and lineage with
+`list_project_graph`. Present the playable result and the project; do not call
+the job complete while a generation edge is non-terminal.
 
-Present the complete graph and playable MP4. Every generation edge must be
-terminal, and every successful media node must have a local path.
+## Stop Conditions
 
-## No-Spend Check
+Stop for missing permission, insufficient balance, policy rejection, no
+compatible binding, an unavailable required local tool, exhausted planned
+attempts, or any unapproved paid retry. Preserve failed tasks and local evidence.
 
-Before paid generation, follow `references/no-spend-mcp-plan.md`. It creates a
-fresh text scaffold, discovers the live catalog, and records the exact call
-plan without calling `generate_on_node`.
+Do not ask SorryAssets to execute or instantiate this Skill. The calling agent
+composes the method and invokes atomic tools directly.

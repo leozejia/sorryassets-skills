@@ -1,10 +1,13 @@
-# Shot still (planning only)
+# Planning still
 
-Create a still image prompt that illustrates this shot for human and agent
-inspection. This still is a **planning asset**. It will not be uploaded as a
-video first frame under the current SorryAssets contract.
+Write an image prompt that makes this shot easy to inspect before video
+generation.
 
-**Shot:** {{item}}
+Shot: {{shot}}
 
-Describe composition, characters, lighting, and style in one paragraph suitable
-for `image.generate`. Prefer 9:16 framing language when the catalog supports it.
+Delivery constraints: {{runtime constraints}}
+
+Describe composition, characters, continuity details, lighting, setting, mood,
+and the decisive visual moment. Use only dimensions and reference roles declared
+by the selected image binding. Do not imply that the still will become a video
+input unless the selected video binding declares that role.

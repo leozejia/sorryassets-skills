@@ -1,15 +1,12 @@
-# Shot video (prompt-only)
+# Shot video prompt
 
-Write a single self-contained 15-second video prompt for this shot.
+Write a self-contained video prompt for this shot.
 
-**Shot:** {{item}}
+Shot: {{shot}}
 
-Requirements:
+Runtime constraints: {{duration, resolution, aspect, sound, and other limits}}
 
-- duration 15 seconds, 720p, 9:16 (portrait)
-- continuous action with clear subject motion and optional camera move
-- name characters consistently with the cast
-- no reliance on an uploaded first frame, last frame, or reference image
-- one paragraph the agent can place in a text node with role `prompt`
-
-Do not claim that a storyboard still will be sent to the provider.
+Include the subject, setting, continuous action, camera behavior, continuity
+details, and intended ending frame or transition. Keep the action achievable in
+the selected duration. Mention reference media only when the live binding
+accepts the corresponding role and the request will actually provide it.

@@ -1,17 +1,17 @@
 # Character prompt scaffold
 
-You are drawing a single character reference sheet for a short drama.
+Create a clear character reference for the intended downstream use.
 
-Render the character described below as a **full-body portrait**, centered,
-neutral background, consistent lighting so the same character can be reused
-across later shots.
+Character brief: {{character brief}}
 
-**Character description:** {{input.description}}
+Intended use: {{intended use}}
 
-**Style:** {{var.style}}
+Visual direction and constraints: {{runtime direction}}
 
 Guidance:
-- One character only, no text, no watermark.
-- Clear, recognizable face and silhouette — this image becomes the visual
-  anchor for every later shot featuring this character.
-- Keep wardrobe and key features specific and repeatable.
+
+- Show the character clearly enough to judge identity, silhouette, wardrobe,
+  and repeatable defining features.
+- Match composition, background, and pose to the intended use.
+- Avoid unwanted text, watermarks, ambiguous anatomy, and distracting props.
+- Preserve every explicit identity or continuity constraint from the brief.

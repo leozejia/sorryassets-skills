@@ -112,17 +112,9 @@ npx skills remove -g
 
 - `character-creation` — create reusable character reference images; the agent
   scores variants and selects the strongest reference.
-- `short-drama` — produce a 30-second episode plan and local assembly path:
-  script, cast, two shots, planning stills, two prompt-only 15s clips, and one
-  FFmpeg-assembled MP4. Intermediate choices are autonomous.
-
-## SorryAssets Workflow Attachments
-
-Some Skills include `references/sorryassets.workflow.json`. This is not a new
-Skill standard. It is an optional SorryAssets desktop attachment that can be
-snapshotted into a local canvas graph.
-
-Agents should still read `SKILL.md` first and call SorryAssets through MCP/API.
+- `short-drama` — turn varied short-form narrative briefs into scripts, casts,
+  shot plans, generated media, and locally assembled videos. Format and model
+  choices come from the brief and live catalog.
 
 ## Validate
 
@@ -130,7 +122,7 @@ Agents should still read `SKILL.md` first and call SorryAssets through MCP/API.
 npm test
 ```
 
-This checks that every Skill has a valid `SKILL.md`, that any referenced
-SorryAssets workflow attachment exists, and that the short-drama assembly helper
-can concatenate two synthetic FFmpeg clips (requires `ffmpeg` and `ffprobe` on
-PATH).
+This checks that every Skill has standard frontmatter, rejects private runtime
+files and metadata, and verifies that the short-drama assembly helper can
+concatenate a bounded synthetic clip sequence (requires `ffmpeg` and `ffprobe`
+on PATH).

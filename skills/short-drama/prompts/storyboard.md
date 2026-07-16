@@ -1,19 +1,21 @@
-# Storyboard breaker (exactly two shots)
+# Shot-plan scaffold
 
-Break the script into **exactly two** ordered 15-second shots for a 30-second
-episode (default 9:16 vertical).
+Break the script into the smallest coherent ordered shot sequence that meets the
+runtime delivery constraints.
 
-**Script:** {{step.script}}
-**Characters:** {{step.characters}}
+Script: {{script}}
 
-For each shot, write one dense paragraph covering:
+Cast and continuity: {{cast}}
 
-- shot number (1 or 2) and target duration 15s
-- camera framing and movement
-- setting / time of day
-- which named characters appear
-- the continuous action that fills ~15 seconds
-- a self-contained **video prompt** the agent can paste into a text node
+Delivery constraints: {{duration, aspect, resolution, and other limits}}
 
-Do not invent more than two shots. Prefer a clear setup → payoff structure
-across the pair. Storyboard stills are planning only; video is prompt-only.
+For each shot, provide:
+
+- narrative purpose and target duration;
+- framing, camera movement, setting, and time;
+- named characters and continuity requirements;
+- continuous visible action, dialogue/sound needs, and transition;
+- one self-contained generation prompt.
+
+The total planned duration must match the delivery target. Do not add shots that
+do not advance the story or clarify the intended result.

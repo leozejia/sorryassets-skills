@@ -1,75 +1,65 @@
 ---
 name: character-creation
-description: Create reusable AIGC character reference images with SorryAssets. Use when the user wants character portraits, visual directions, style exploration, game characters, AI comic casts, or reusable character assets. The agent scores variants and selects the strongest direction without asking the human to pick.
-license: Proprietary. See repository license terms.
-compatibility: Requires a configured SorryAssets MCP/API connection for generation.
-metadata:
-  sorryassets.workflow: references/sorryassets.workflow.json
-  sorryassets.capabilities: image.generate
+description: Create and select reusable AIGC character references with SorryAssets. Use for character portraits, visual development, identity exploration, game or comic casts, and consistent character assets across materially different briefs. Discover the live catalog, generate a bounded candidate set, evaluate it, and record the strongest usable reference without asking the human to make routine intermediate choices.
 ---
 
 # Character Creation
 
-Turn a character description into a small set of visual directions and one
-reusable character reference image. The agent chooses the strongest usable
-result. The human reviews the finished project, not every intermediate pick.
+Turn a character brief into inspectable visual candidates and one selected
+reference that can guide later work. Keep creative selection with the agent;
+ask the human only for authorization, policy, balance, or a material brief
+decision.
 
 ## Inputs
 
-- Character description (required).
-- Optional style or medium preference.
+- Require a character description.
+- Accept optional intended use, medium, visual constraints, reference assets,
+  variation count, and spend limit.
+- Treat style, provider, model, dimensions, and candidate count as runtime
+  choices rather than properties of this Skill.
 
-## Workflow
+## Method
 
-1. Create or open a SorryAssets project (`get_active_project` / `create_project`).
-2. Call `get_catalog`. Pick one exact `image.generate` provider and model that
-   is declared and suitable for still character reference. Prefer a low-cost
-   route when several exist.
-3. Create a text node with the character description (and optional style).
-4. Generate **three to five** image variants with `generate_on_node`:
-   - capability `image.generate`, the chosen provider/model;
-   - `inputs: [{ node_id: <description node>, role: "prompt" }]` when the
-     binding accepts a prompt role; otherwise put the description in
-     `values.prompt`;
-   - catalog-declared scalar values only (no invented params).
-5. Treat each `generate_on_node` reply as **queued work**, not success. Poll
-   `list_project_graph` until each node is terminal. Accept success only when
-   `taskStatus` is `succeeded` **and** a local `filePath` exists.
-6. **Autonomous selection** (do not ask the human which variant to keep):
-   - Score each succeeded image for prompt fidelity, identity clarity, face and
-     costume readability, composition, and defects (extra limbs, text garbage,
-     blur, crop).
-   - Keep all variants in the project graph as visible alternatives.
-   - Select the single strongest usable image as the character reference.
-   - Record the choice in a short text node (selected node id + one-line reason).
-7. Pause only for missing permission, insufficient balance, content-policy
-   rejection, or unavailable model support.
+1. Open or create a clearly named SorryAssets project and call `get_catalog`.
+2. Record the brief and relevant constraints in a text node.
+3. Choose an exact `image.generate` binding whose declared roles and parameters
+   fit the brief. Prefer the least expensive compatible option when quality is
+   otherwise comparable.
+4. Plan a bounded candidate set that varies only meaningful visual decisions.
+   Honor an explicit count; otherwise use the smallest set that supports a real
+   comparison within the authorized budget. Record the plan before submitting.
+5. Call `generate_on_node` once per planned candidate using only catalog-declared
+   roles and scalar values. Do not invent parameters or private model ids.
+6. Treat each reply as submitted work, not success. Poll `list_project_graph`
+   until terminal. A usable result requires `taskStatus: succeeded` and a local
+   file path.
+7. Inspect succeeded candidates and score prompt fidelity, identity clarity,
+   silhouette, repeatable features, intended-use composition, and visible
+   defects. Keep all candidates in the graph, select the strongest usable one,
+   and record its node id plus a concise reason in a text node.
+8. If every candidate is unusable, make at most one focused refinement round
+   when it remains within authorization. Otherwise stop and report the evidence
+   honestly.
 
-## Selection Rubric
+Use [prompts/character.md](prompts/character.md) when a prompt scaffold helps.
+Adapt it to the brief instead of treating its placeholders as an executable
+template.
 
-Prefer, in order:
+## Stop Conditions
 
-1. Matches the written description (identity, age, costume, mood).
-2. Clear face and silhouette usable as a later still or planning reference.
-3. Clean image (no major artifacts).
-4. Style consistent with any stated medium preference.
+Stop for missing permission, insufficient balance, policy rejection, no
+compatible live binding, an exhausted candidate/refinement bound, or a paid
+retry that the human has not authorized.
 
-If every variant fails, regenerate once with a tighter prompt. If still unusable,
-stop and report the failure honestly. Do not invent a reference.
-
-## SorryAssets MCP Guidance
-
-Use atomic tools only:
+## Atomic Tools
 
 - `get_active_project`
 - `create_project`
 - `get_catalog`
 - `create_node`
+- `estimate_generation`
 - `generate_on_node`
 - `list_project_graph`
 
-Optional: if the host can instantiate workflow attachments, snapshot
-`references/sorryassets.workflow.json` as an editable scaffold. That is not a
-Skill runtime. You still call atomic MCP tools.
-
-Prompt scaffold: `prompts/character.md`.
+Do not ask SorryAssets to interpret this package. The agent reads the method and
+calls the same atomic tools available without the Skill.
