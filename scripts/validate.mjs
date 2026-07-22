@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -39,13 +40,40 @@ async function filesUnder(dir) {
   return files;
 }
 
+async function packageManifest(dir) {
+  const files = [];
+  for (const file of await filesUnder(dir)) {
+    const body = await readFile(file);
+    files.push({
+      path: path.relative(dir, file).split(path.sep).join("/"),
+      bytes: body.length,
+      sha256: createHash("sha256").update(body).digest("hex"),
+    });
+  }
+  files.sort((left, right) => {
+    const leftPath = left.path.toLowerCase();
+    const rightPath = right.path.toLowerCase();
+    return leftPath < rightPath ? -1 : leftPath > rightPath ? 1 : 0;
+  });
+  const canonical = files
+    .map((file) => `${file.path}\0${file.bytes}\0${file.sha256}\n`)
+    .join("");
+  return {
+    digest: createHash("sha256").update(canonical).digest("hex"),
+    totalBytes: files.reduce((total, file) => total + file.bytes, 0),
+    files,
+  };
+}
+
 const entries = await readdir(skillsDir);
 const skillNames = [];
+const packageManifests = new Map();
 
 for (const name of entries) {
   const dir = path.join(skillsDir, name);
   if (!(await stat(dir)).isDirectory()) continue;
   skillNames.push(name);
+  packageManifests.set(name, await packageManifest(dir));
   const skillPath = path.join(dir, "SKILL.md");
   let markdown;
   try {
@@ -96,9 +124,20 @@ if (catalog) {
   if (JSON.stringify(catalogNames) !== JSON.stringify(directories)) {
     fail("catalog skills must match package directories exactly");
   }
+  const skillKeys = new Set();
   for (const skill of catalog.skills ?? []) {
+    if (skill.id !== skill.name || skill.path !== `skills/${skill.name}`) {
+      fail(`${skill.name}: id and path must match the package directory`);
+    }
+    const skillKey = `${catalog.repository}:${skill.id}`;
+    if (skillKeys.has(skillKey)) fail(`${skill.name}: duplicate logical key ${skillKey}`);
+    skillKeys.add(skillKey);
     if (!new Set(["preview", "live", "coming-soon"]).has(skill.status)) {
       fail(`${skill.name}: invalid catalog status ${skill.status}`);
+    }
+    const expected = packageManifests.get(skill.name);
+    if (JSON.stringify(skill.package) !== JSON.stringify(expected)) {
+      fail(`${skill.name}: package manifest does not match files on disk`);
     }
   }
 }

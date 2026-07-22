@@ -1,7 +1,7 @@
 {
   "version": 1,
   "kind": "sorryassets-skills-catalog",
-  "updatedAt": "2026-07-16",
+  "updatedAt": "2026-07-22",
   "repository": "leozejia/sorryassets-skills",
   "repoUrl": "https://github.com/leozejia/sorryassets-skills",
   "install": {
@@ -42,6 +42,22 @@
       "category": "character-assets",
       "path": "skills/character-creation",
       "skillPath": "skills/character-creation/SKILL.md",
+      "package": {
+        "digest": "8b0a9dde9e91704af97ebafad514a8b69b91b3054353c6fc7e6cc49f70aed2de",
+        "totalBytes": 3605,
+        "files": [
+          {
+            "path": "prompts/character.md",
+            "bytes": 565,
+            "sha256": "2e6c1c41878c48389f5cc8c86a6a563ebac82f84ef8fde8b5a76371a749dfd62"
+          },
+          {
+            "path": "SKILL.md",
+            "bytes": 3040,
+            "sha256": "a9aca357ca43994a0a56c142f697c0815b133019985f6ebbc0489e670389a3df"
+          }
+        ]
+      },
       "capabilities": ["image.generate"],
       "title": {
         "en": "Character Creation",
@@ -87,6 +103,62 @@
       "category": "narrative-video",
       "path": "skills/short-drama",
       "skillPath": "skills/short-drama/SKILL.md",
+      "package": {
+        "digest": "bbda81e0c68cb1fe907e9bb4ad73738feda80f071ad2c1f61bb7b2b535c356d8",
+        "totalBytes": 24519,
+        "files": [
+          {
+            "path": "prompts/extract-characters.md",
+            "bytes": 338,
+            "sha256": "a18aba420f91023fb7fe6e0aeb42cdcf9abe1e4d52de58e3b1b2ce3a8d4cc7eb"
+          },
+          {
+            "path": "prompts/final-review.md",
+            "bytes": 1546,
+            "sha256": "ff33fa1580099f73babfd3119dd1b0210e1a6fb80a2ddac59c04ee38bc2c2077"
+          },
+          {
+            "path": "prompts/production-bible.md",
+            "bytes": 1283,
+            "sha256": "408aef6e90cc0740ef0c3d8cc5dca12577c5d79d99bde2b4984e021948ba3f37"
+          },
+          {
+            "path": "prompts/script.md",
+            "bytes": 860,
+            "sha256": "b6450225f5e15bdfe2c54fb546f7d8023000dfdb65d9b431341874c71a0702da"
+          },
+          {
+            "path": "prompts/shot-image.md",
+            "bytes": 789,
+            "sha256": "a9ae157d8df60c64316bf7cac98b2f5ec4fcd8e7efabea990cbc469d3a0476ea"
+          },
+          {
+            "path": "prompts/shot-video.md",
+            "bytes": 801,
+            "sha256": "0f59b0d8e818676cc02986617b6a92615a242f5e805da6d98060db87074b7aac"
+          },
+          {
+            "path": "prompts/storyboard.md",
+            "bytes": 1122,
+            "sha256": "7b53947997b7609cba9f4a376fc69fab84dd2f2ef0ceb884d91168137c130406"
+          },
+          {
+            "path": "scripts/assemble-video.mjs",
+            "bytes": 6448,
+            "sha256": "9833bd0fa0b88aa766513a9d02407962a717207829c9b6dd5acabc66cebabdb2"
+          },
+          {
+            "path": "scripts/assemble-video.selftest.mjs",
+            "bytes": 3981,
+            "sha256": "96d6cdae3d5ca83a17ddefe734a66a6568f5b49bf1f0bd762beaf3f8d5a194a6"
+          },
+          {
+            "path": "SKILL.md",
+            "bytes": 7351,
+            "sha256": "212cdc35fcbf1eeb0bd13854e136be89efa302b9fee7999250a41aac37f952bb"
+          }
+        ]
+      },
       "capabilities": ["image.generate", "video.generate"],
       "title": {
         "en": "AI Short Drama",
