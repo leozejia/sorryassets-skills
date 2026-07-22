@@ -1,4 +1,4 @@
-# Short-form narrative script
+# Narrative script scaffold
 
 Turn the brief into a concise screen story that fits the runtime delivery
 constraints.
@@ -9,9 +9,14 @@ Delivery constraints: {{duration, format, audience, dialogue, and other limits}}
 
 Write:
 
-1. A one-sentence dramatic or persuasive spine.
-2. The characters and their narrative purpose.
-3. A script with only the action, dialogue, and sound needed on screen.
-4. A clear ending beat that resolves the brief within the target duration.
+1. The intended audience effect and a one-sentence causal spine.
+2. The setup, escalation or change, decisive turn, and final resolution required
+   by this story rather than by a fixed beat template.
+3. Each character's narrative purpose, visible objective, and meaningful change.
+4. A script containing only producible screen action, dialogue, and sound.
+5. A final image or beat that resolves or deliberately reframes the opening
+   promise.
 
-Keep the scope producible with the authorized budget and available catalog.
+Test cause and effect: each beat must make the next beat possible or necessary.
+Keep the scope producible within the current authority, budget, delivery
+constraints, and available catalog.
