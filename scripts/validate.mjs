@@ -1,7 +1,7 @@
-import { createHash } from "node:crypto";
-import { readdir, readFile, stat } from "node:fs/promises";
+import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { buildSkillPackage, filesUnder } from "./package-lib.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const skillsDir = path.join(root, "skills");
@@ -30,50 +30,19 @@ function frontmatter(markdown) {
   return data;
 }
 
-async function filesUnder(dir) {
-  const files = [];
-  for (const entry of await readdir(dir, { withFileTypes: true })) {
-    const item = path.join(dir, entry.name);
-    if (entry.isDirectory()) files.push(...await filesUnder(item));
-    else if (entry.isFile()) files.push(item);
-  }
-  return files;
-}
-
-async function packageManifest(dir) {
-  const files = [];
-  for (const file of await filesUnder(dir)) {
-    const body = await readFile(file);
-    files.push({
-      path: path.relative(dir, file).split(path.sep).join("/"),
-      bytes: body.length,
-      sha256: createHash("sha256").update(body).digest("hex"),
-    });
-  }
-  files.sort((left, right) => {
-    const leftPath = left.path.toLowerCase();
-    const rightPath = right.path.toLowerCase();
-    return leftPath < rightPath ? -1 : leftPath > rightPath ? 1 : 0;
-  });
-  const canonical = files
-    .map((file) => `${file.path}\0${file.bytes}\0${file.sha256}\n`)
-    .join("");
-  return {
-    digest: createHash("sha256").update(canonical).digest("hex"),
-    totalBytes: files.reduce((total, file) => total + file.bytes, 0),
-    files,
-  };
-}
-
-const entries = await readdir(skillsDir);
+const entries = await readdir(skillsDir, { withFileTypes: true });
 const skillNames = [];
 const packageManifests = new Map();
 
-for (const name of entries) {
+for (const entry of entries) {
+  const name = entry.name;
   const dir = path.join(skillsDir, name);
-  if (!(await stat(dir)).isDirectory()) continue;
+  if (!entry.isDirectory()) {
+    fail(`${name}: package root must be a real directory`);
+    continue;
+  }
   skillNames.push(name);
-  packageManifests.set(name, await packageManifest(dir));
+  packageManifests.set(name, (await buildSkillPackage(dir)).package);
   const skillPath = path.join(dir, "SKILL.md");
   let markdown;
   try {
@@ -115,6 +84,7 @@ try {
 }
 
 if (catalog) {
+  if (catalog.version !== 2) fail("catalog.json version must be 2");
   const serialized = JSON.stringify(catalog);
   if (serialized.includes("workflowPath") || serialized.includes("sorryassets.workflow")) {
     fail("catalog.json contains a private workflow attachment field");

@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "kind": "sorryassets-skills-catalog",
-  "updatedAt": "2026-07-22",
+  "updatedAt": "2026-07-23",
   "repository": "leozejia/sorryassets-skills",
   "repoUrl": "https://github.com/leozejia/sorryassets-skills",
   "install": {
@@ -19,7 +19,9 @@
         "en": "Build reusable character references, portraits, and variant sets.",
         "zh": "生成可复用的角色参考、肖像和变体组。"
       },
-      "items": ["character-creation"]
+      "items": [
+        "character-creation"
+      ]
     },
     {
       "id": "narrative-video",
@@ -31,7 +33,9 @@
         "en": "Turn varied briefs into planned, generated, and locally assembled screen stories.",
         "zh": "把不同创意简报转化为经过规划、生成和本地组装的叙事视频。"
       },
-      "items": ["short-drama"]
+      "items": [
+        "short-drama"
+      ]
     }
   ],
   "skills": [
@@ -56,9 +60,17 @@
             "bytes": 3040,
             "sha256": "a9aca357ca43994a0a56c142f697c0815b133019985f6ebbc0489e670389a3df"
           }
-        ]
+        ],
+        "bundle": {
+          "format": "zip",
+          "url": "https://dl.sorryassets.com/skills/sha256/ad268edd51f93684c4ca4ec3da3f291a161fe498dff52781b9c0eebb8c7d617f.zip",
+          "bytes": 3835,
+          "sha256": "ad268edd51f93684c4ca4ec3da3f291a161fe498dff52781b9c0eebb8c7d617f"
+        }
       },
-      "capabilities": ["image.generate"],
+      "capabilities": [
+        "image.generate"
+      ],
       "title": {
         "en": "Character Creation",
         "zh": "角色创建"
@@ -72,12 +84,24 @@
         "zh": "游戏角色、AI 漫剧演员、参考肖像和风格探索。"
       },
       "inputs": {
-        "en": ["Character description"],
-        "zh": ["角色描述"]
+        "en": [
+          "Character description"
+        ],
+        "zh": [
+          "角色描述"
+        ]
       },
       "outputs": {
-        "en": ["Portrait variants", "Reusable character reference", "Creation trail"],
-        "zh": ["肖像变体", "可复用角色参考", "创作脉络"]
+        "en": [
+          "Portrait variants",
+          "Reusable character reference",
+          "Creation trail"
+        ],
+        "zh": [
+          "肖像变体",
+          "可复用角色参考",
+          "创作脉络"
+        ]
       },
       "route": "/skills/character-creation",
       "install": "npx skills add leozejia/sorryassets-skills --skill character-creation -a codex -a claude-code -g -y",
@@ -87,8 +111,16 @@
       },
       "proof": {
         "nodes": {
-          "en": ["character brief", "bounded candidates", "selected reference"],
-          "zh": ["角色简报", "有界候选", "选定参考"]
+          "en": [
+            "character brief",
+            "bounded candidates",
+            "selected reference"
+          ],
+          "zh": [
+            "角色简报",
+            "有界候选",
+            "选定参考"
+          ]
         },
         "note": {
           "en": "Preview contract only; installed real-result acceptance has not run yet.",
@@ -157,9 +189,18 @@
             "bytes": 7351,
             "sha256": "212cdc35fcbf1eeb0bd13854e136be89efa302b9fee7999250a41aac37f952bb"
           }
-        ]
+        ],
+        "bundle": {
+          "format": "zip",
+          "url": "https://dl.sorryassets.com/skills/sha256/95c9cc6d6ac53fa70c81fe2f7f22e4b4b46c80883d98a93d31747096bd0ad83b.zip",
+          "bytes": 25757,
+          "sha256": "95c9cc6d6ac53fa70c81fe2f7f22e4b4b46c80883d98a93d31747096bd0ad83b"
+        }
       },
-      "capabilities": ["image.generate", "video.generate"],
+      "capabilities": [
+        "image.generate",
+        "video.generate"
+      ],
       "title": {
         "en": "AI Short Drama",
         "zh": "AI 短剧"
@@ -173,12 +214,30 @@
         "zh": "短剧、叙事宣传片、社交故事和其他紧凑的屏幕叙事。"
       },
       "inputs": {
-        "en": ["Premise or creative brief", "Optional delivery constraints"],
-        "zh": ["故事前提或创意简报", "可选交付约束"]
+        "en": [
+          "Premise or creative brief",
+          "Optional delivery constraints"
+        ],
+        "zh": [
+          "故事前提或创意简报",
+          "可选交付约束"
+        ]
       },
       "outputs": {
-        "en": ["Script", "Cast", "Shot plan", "Generated media", "Final local video"],
-        "zh": ["剧本", "角色", "镜头计划", "生成媒体", "本地成片"]
+        "en": [
+          "Script",
+          "Cast",
+          "Shot plan",
+          "Generated media",
+          "Final local video"
+        ],
+        "zh": [
+          "剧本",
+          "角色",
+          "镜头计划",
+          "生成媒体",
+          "本地成片"
+        ]
       },
       "route": "/skills/short-drama",
       "install": "npx skills add leozejia/sorryassets-skills --skill short-drama -a codex -a claude-code -g -y",
@@ -188,8 +247,20 @@
       },
       "proof": {
         "nodes": {
-          "en": ["brief", "script and cast", "shot plan", "generated media", "local result"],
-          "zh": ["简报", "剧本和角色", "镜头计划", "生成媒体", "本地结果"]
+          "en": [
+            "brief",
+            "script and cast",
+            "shot plan",
+            "generated media",
+            "local result"
+          ],
+          "zh": [
+            "简报",
+            "剧本和角色",
+            "镜头计划",
+            "生成媒体",
+            "本地结果"
+          ]
         },
         "note": {
           "en": "Preview contract only; duration, format, model, and input roles come from each brief and the live catalog.",

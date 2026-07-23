@@ -21,6 +21,12 @@
     "skills"
   ],
   "scripts": {
-    "test": "node scripts/validate.mjs && node skills/short-drama/scripts/assemble-video.selftest.mjs"
+    "bundles:sync": "node scripts/package.mjs sync",
+    "bundles:verify": "node scripts/package.mjs verify",
+    "bundles:build": "node scripts/package.mjs build",
+    "test": "node scripts/validate.mjs && node scripts/package.selftest.mjs && node skills/short-drama/scripts/assemble-video.selftest.mjs"
+  },
+  "devDependencies": {
+    "yazl": "3.3.1"
   }
 }

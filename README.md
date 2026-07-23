@@ -7,6 +7,11 @@ Each Skill is a normal Agent Skills package: `SKILL.md` plus optional
 for Codex, Claude Code, Cursor, and other hosts that support the open Agent
 Skills format.
 
+This repository is publication source. The SorryAssets Skill Hub installs only
+verified immutable bundles from `dl.sorryassets.com`; it never downloads package
+files from GitHub. The `npx skills` commands below are the separate optional path
+for installing directly into an Agent host.
+
 ## Install
 
 ### Recommended: `npx skills`
@@ -123,6 +128,18 @@ npm test
 ```
 
 This checks that every Skill has standard frontmatter, rejects private runtime
-files and metadata, and verifies that the short-drama assembly helper can
-concatenate a bounded synthetic clip sequence (requires `ffmpeg` and `ffprobe`
-on PATH).
+files and metadata, reproduces the declared bundle bytes, and verifies that the
+short-drama assembly helper can concatenate a bounded synthetic clip sequence
+(requires `ffmpeg` and `ffprobe` on PATH).
+
+After package contents change, refresh the deterministic manifest and bundle
+metadata before committing:
+
+```bash
+npm run bundles:sync
+npm test
+```
+
+Publication automation runs `npm run bundles:build -- --output <empty-dir>` and
+uploads only the content-addressed objects listed in the generated
+`publish-manifest.json`. Do not upload a mutable Skill alias.
