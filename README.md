@@ -12,6 +12,20 @@ verified immutable bundles from `dl.sorryassets.com`; it never downloads package
 files from GitHub. The `npx skills` commands below are the separate optional path
 for installing directly into an Agent host.
 
+## Building Skills
+
+Before adding or restructuring a Skill, read the construction constitution:
+
+- [`ARCHITECTURE.md`](ARCHITECTURE.md) — how Skills are cut (by finished-product
+  type), structured (thin `SKILL.md` + on-demand `references/`), and built.
+- [`docs/product-types.md`](docs/product-types.md) — the product-type roadmap
+  and why each type qualifies as distinct.
+- [`docs/styles.md`](docs/styles.md) — the style-library contract (styles are
+  data, not Skills).
+
+The Skills listed below are being restructured toward the product-type
+architecture. Until that lands, they remain in their current stage form.
+
 ## Install
 
 ### Recommended: `npx skills`
@@ -116,10 +130,21 @@ npx skills remove -g
 ## Skills
 
 - `character-creation` — create reusable character reference images; the agent
-  scores variants and selects the strongest reference.
+  designs identity anchors (silhouette, signature color, prop motif), scores
+  variants, and selects the strongest reference.
+- `scene-development` — turn a location description into a spatial anchor image
+  that locks layout, light direction, and palette for every shot in that scene.
 - `short-drama` — turn varied short-form narrative briefs into scripts, casts,
   shot plans, generated media, and locally assembled videos. Format and model
   choices come from the brief and live catalog.
+- `video-continuity` — establish spatial anchors, identity anchors, and
+  first/last frame chain plans before generation to prevent axis jumps and
+  identity drift across separately generated clips.
+
+Each Skill carries its own `references/` knowledge layer: film-craft vocabulary,
+AI defect classification with prevention and remediation, and per-model cards
+covering input roles, reference-image limits, and negative-prompt policy.
+Model cards are planning aids — the live catalog is always authoritative.
 
 ## Validate
 

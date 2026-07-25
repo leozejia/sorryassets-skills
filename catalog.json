@@ -1,7 +1,7 @@
 {
   "version": 2,
   "kind": "sorryassets-skills-catalog",
-  "updatedAt": "2026-07-23",
+  "updatedAt": "2026-07-25",
   "repository": "leozejia/sorryassets-skills",
   "repoUrl": "https://github.com/leozejia/sorryassets-skills",
   "install": {
@@ -24,6 +24,20 @@
       ]
     },
     {
+      "id": "scene-assets",
+      "title": {
+        "en": "Scene Assets",
+        "zh": "场景资产"
+      },
+      "description": {
+        "en": "Build spatial anchor images that lock a location's layout, light, and palette for consistent multi-shot production.",
+        "zh": "生成空间锚点图，锁定场景的布局、光线和色调，确保多镜头制作的视觉一致性。"
+      },
+      "items": [
+        "scene-development"
+      ]
+    },
+    {
       "id": "narrative-video",
       "title": {
         "en": "Narrative Video",
@@ -34,7 +48,8 @@
         "zh": "把不同创意简报转化为经过规划、生成和本地组装的叙事视频。"
       },
       "items": [
-        "short-drama"
+        "short-drama",
+        "video-continuity"
       ]
     }
   ],
@@ -47,8 +62,8 @@
       "path": "skills/character-creation",
       "skillPath": "skills/character-creation/SKILL.md",
       "package": {
-        "digest": "8b0a9dde9e91704af97ebafad514a8b69b91b3054353c6fc7e6cc49f70aed2de",
-        "totalBytes": 3605,
+        "digest": "fb555c974f138101f59b6740b3c53b0112bb74b5fc276ec1167e763bad273ff5",
+        "totalBytes": 22979,
         "files": [
           {
             "path": "prompts/character.md",
@@ -56,16 +71,36 @@
             "sha256": "2e6c1c41878c48389f5cc8c86a6a563ebac82f84ef8fde8b5a76371a749dfd62"
           },
           {
+            "path": "references/defects.md",
+            "bytes": 6977,
+            "sha256": "d338eb6305877a8967589389bb5c9de9af463bce9aefe1fc09e5f5811bd6c0fa"
+          },
+          {
+            "path": "references/identity-anchors.md",
+            "bytes": 6337,
+            "sha256": "a082722e8e28e37e95bdd3683995a83471b1f328c9d3287550a73f2fb9b2ade5"
+          },
+          {
+            "path": "references/models/flux-2-pro.md",
+            "bytes": 2277,
+            "sha256": "b6d31cf04f4552a2e30fa4d7a306fe0d339d76ea966a5ddd5a053990425ab35f"
+          },
+          {
+            "path": "references/models/nano-banana-2.md",
+            "bytes": 2564,
+            "sha256": "bc678f67a95a465615a5eae5ce05c4614d07a38749367663c4c1a98099d0a1b9"
+          },
+          {
             "path": "SKILL.md",
-            "bytes": 3040,
-            "sha256": "a9aca357ca43994a0a56c142f697c0815b133019985f6ebbc0489e670389a3df"
+            "bytes": 4259,
+            "sha256": "3da9f970912f90ecc77cee0265c4bef6b1925fb2835e357ddd64dda5afe14b93"
           }
         ],
         "bundle": {
           "format": "zip",
-          "url": "https://dl.sorryassets.com/skills/sha256/ad268edd51f93684c4ca4ec3da3f291a161fe498dff52781b9c0eebb8c7d617f.zip",
-          "bytes": 3835,
-          "sha256": "ad268edd51f93684c4ca4ec3da3f291a161fe498dff52781b9c0eebb8c7d617f"
+          "url": "https://dl.sorryassets.com/skills/sha256/ad6ff13a15331fea42df329cec787027bc72521a31aa95cb2a826447874693c6.zip",
+          "bytes": 23745,
+          "sha256": "ad6ff13a15331fea42df329cec787027bc72521a31aa95cb2a826447874693c6"
         }
       },
       "capabilities": [
@@ -136,8 +171,8 @@
       "path": "skills/short-drama",
       "skillPath": "skills/short-drama/SKILL.md",
       "package": {
-        "digest": "bbda81e0c68cb1fe907e9bb4ad73738feda80f071ad2c1f61bb7b2b535c356d8",
-        "totalBytes": 24519,
+        "digest": "b171dc662edc7b4b678d3ca60c6e4348ffed8bbfd6f650f95a03c86ef68816af",
+        "totalBytes": 56391,
         "files": [
           {
             "path": "prompts/extract-characters.md",
@@ -146,8 +181,8 @@
           },
           {
             "path": "prompts/final-review.md",
-            "bytes": 1546,
-            "sha256": "ff33fa1580099f73babfd3119dd1b0210e1a6fb80a2ddac59c04ee38bc2c2077"
+            "bytes": 2395,
+            "sha256": "acc385c7c718f217b1cd24a4cc3a18ccce9163a405f32aee42c78e14e6ac2cb3"
           },
           {
             "path": "prompts/production-bible.md",
@@ -166,13 +201,38 @@
           },
           {
             "path": "prompts/shot-video.md",
-            "bytes": 801,
-            "sha256": "0f59b0d8e818676cc02986617b6a92615a242f5e805da6d98060db87074b7aac"
+            "bytes": 1746,
+            "sha256": "f7b322a446bb7f53872e738718a022dbde6abd329b06067b9c0242433b11b02e"
           },
           {
             "path": "prompts/storyboard.md",
-            "bytes": 1122,
-            "sha256": "7b53947997b7609cba9f4a376fc69fab84dd2f2ef0ceb884d91168137c130406"
+            "bytes": 2528,
+            "sha256": "97f2a78dbb9a5bd74db9057ab180c19af485fa4853011f4ac39941d3fc56bb72"
+          },
+          {
+            "path": "references/cinematography.md",
+            "bytes": 9654,
+            "sha256": "17aa9bd22de31d00313ce18c1729681635f851a237c82dd5c2392c244c0c004b"
+          },
+          {
+            "path": "references/defects.md",
+            "bytes": 6857,
+            "sha256": "d2f9a738603a64b350feb81740d3085d5e06de951e32a892d686e19726bb39d8"
+          },
+          {
+            "path": "references/models/seedance-1.5-pro.md",
+            "bytes": 2954,
+            "sha256": "2b3f8004690141a088c05c87f1e0d7340e795ceb15c3904a123ad913094e593f"
+          },
+          {
+            "path": "references/models/veo-3.1.md",
+            "bytes": 3001,
+            "sha256": "491d7d056372f370b8c9e5dd0470c3e738a3f26f08d25edbdcbb713ff3cd2167"
+          },
+          {
+            "path": "references/shot-prompt-format.md",
+            "bytes": 5028,
+            "sha256": "bf129b516214c3cd4d429688b26c0fa7f7f060d8c5753fcb093e8d3872bc4b14"
           },
           {
             "path": "scripts/assemble-video.mjs",
@@ -186,15 +246,15 @@
           },
           {
             "path": "SKILL.md",
-            "bytes": 7351,
-            "sha256": "212cdc35fcbf1eeb0bd13854e136be89efa302b9fee7999250a41aac37f952bb"
+            "bytes": 8529,
+            "sha256": "6c041d41aa63dc3c3f59b4355535c982c22e6e861bfccc2203d83479bb80bb0b"
           }
         ],
         "bundle": {
           "format": "zip",
-          "url": "https://dl.sorryassets.com/skills/sha256/95c9cc6d6ac53fa70c81fe2f7f22e4b4b46c80883d98a93d31747096bd0ad83b.zip",
-          "bytes": 25757,
-          "sha256": "95c9cc6d6ac53fa70c81fe2f7f22e4b4b46c80883d98a93d31747096bd0ad83b"
+          "url": "https://dl.sorryassets.com/skills/sha256/5223eb83ce5be003908c6c26a6abefacbbeb4f807a4c69fb5ccb9eb6be34ea0c.zip",
+          "bytes": 58301,
+          "sha256": "5223eb83ce5be003908c6c26a6abefacbbeb4f807a4c69fb5ccb9eb6be34ea0c"
         }
       },
       "capabilities": [
@@ -265,6 +325,222 @@
         "note": {
           "en": "Preview contract only; duration, format, model, and input roles come from each brief and the live catalog.",
           "zh": "仅为预览契约；时长、格式、模型和输入角色由每次简报与实时目录决定。"
+        }
+      }
+    },
+    {
+      "id": "scene-development",
+      "name": "scene-development",
+      "status": "preview",
+      "category": "scene-assets",
+      "path": "skills/scene-development",
+      "skillPath": "skills/scene-development/SKILL.md",
+      "package": {
+        "digest": "b0f9c8df1867a8e2a38c5195e469fc9aa1e62368ce411bca5ae33066a2afb0b1",
+        "totalBytes": 17810,
+        "files": [
+          {
+            "path": "prompts/scene-brief.md",
+            "bytes": 1834,
+            "sha256": "fb782f65f21d076b138a216fe275ac5358c245750f28a7de9feff4f913a00180"
+          },
+          {
+            "path": "prompts/scene-review.md",
+            "bytes": 1725,
+            "sha256": "5e3b53bea60f9422e58b8d96635e1c0ab29eeed9d1adc445e219206c6d283726"
+          },
+          {
+            "path": "references/cinematography.md",
+            "bytes": 9654,
+            "sha256": "17aa9bd22de31d00313ce18c1729681635f851a237c82dd5c2392c244c0c004b"
+          },
+          {
+            "path": "SKILL.md",
+            "bytes": 4597,
+            "sha256": "b99385e3048c8d0544936b8f6e84641e74737d8c441c3586d545fc5149b2a35d"
+          }
+        ],
+        "bundle": {
+          "format": "zip",
+          "url": "https://dl.sorryassets.com/skills/sha256/55aedea17671cf466e97b494103dd78dbd67bb6d277d6ac098122276e101dff7.zip",
+          "bytes": 18298,
+          "sha256": "55aedea17671cf466e97b494103dd78dbd67bb6d277d6ac098122276e101dff7"
+        }
+      },
+      "capabilities": [
+        "image.generate"
+      ],
+      "title": {
+        "en": "Scene Development",
+        "zh": "场景开发"
+      },
+      "summary": {
+        "en": "Turn a location description into a spatial anchor image that locks the layout, light direction, and color palette for all shots in that scene.",
+        "zh": "把场景描述转化为空间锚点图，锁定该场景所有镜头的布局、光线方向和色调。"
+      },
+      "bestFor": {
+        "en": "Recurring locations in multi-shot productions, mood boards, and scene reference libraries.",
+        "zh": "多镜头制作中的重复场景、氛围板和场景参考库。"
+      },
+      "inputs": {
+        "en": [
+          "Location description",
+          "Optional style references"
+        ],
+        "zh": [
+          "场景描述",
+          "可选风格参考"
+        ]
+      },
+      "outputs": {
+        "en": [
+          "Scene anchor image",
+          "Spatial anchor summary",
+          "Creation trail"
+        ],
+        "zh": [
+          "场景锚点图",
+          "空间锚点摘要",
+          "创作脉络"
+        ]
+      },
+      "route": "/skills/scene-development",
+      "install": "npx skills add leozejia/sorryassets-skills --skill scene-development -a codex -a claude-code -g -y",
+      "installTargets": {
+        "codex": "npx skills add leozejia/sorryassets-skills --skill scene-development -a codex -g -y",
+        "claudeCode": "npx skills add leozejia/sorryassets-skills --skill scene-development -a claude-code -g -y"
+      },
+      "proof": {
+        "nodes": {
+          "en": [
+            "location brief",
+            "anchor candidates",
+            "selected anchor image",
+            "spatial anchor summary"
+          ],
+          "zh": [
+            "场景简报",
+            "锚点候选",
+            "选定锚点图",
+            "空间锚点摘要"
+          ]
+        },
+        "note": {
+          "en": "Preview contract only; installed real-result acceptance has not run yet.",
+          "zh": "仅为预览契约；尚未完成安装态真实结果验收。"
+        }
+      }
+    },
+    {
+      "id": "video-continuity",
+      "name": "video-continuity",
+      "status": "preview",
+      "category": "narrative-video",
+      "path": "skills/video-continuity",
+      "skillPath": "skills/video-continuity/SKILL.md",
+      "package": {
+        "digest": "2492cd7220ca29d3f8667c47309dd9f3f5065543601e98265d93189342094fd7",
+        "totalBytes": 26326,
+        "files": [
+          {
+            "path": "prompts/continuity-contract.md",
+            "bytes": 2249,
+            "sha256": "33394797c6d0bc2e782bd620ec06affb46d3806a9e790e31ad2968d0c2763df6"
+          },
+          {
+            "path": "prompts/continuity-review.md",
+            "bytes": 2035,
+            "sha256": "21aa2d117834699026f7ce6475124585707d73a29686fd6a717e4d3f01cf2170"
+          },
+          {
+            "path": "references/cinematography.md",
+            "bytes": 9654,
+            "sha256": "17aa9bd22de31d00313ce18c1729681635f851a237c82dd5c2392c244c0c004b"
+          },
+          {
+            "path": "references/defects.md",
+            "bytes": 6857,
+            "sha256": "d2f9a738603a64b350feb81740d3085d5e06de951e32a892d686e19726bb39d8"
+          },
+          {
+            "path": "SKILL.md",
+            "bytes": 5531,
+            "sha256": "978144d7dcab217734637e2051c13971a9caca3d19aa5c3f2d1b20c2c5229f7c"
+          }
+        ],
+        "bundle": {
+          "format": "zip",
+          "url": "https://dl.sorryassets.com/skills/sha256/dc06159cc08ae9b0d749ed816448fa5f0bdcfed27399e4271840482e7a39992b.zip",
+          "bytes": 26958,
+          "sha256": "dc06159cc08ae9b0d749ed816448fa5f0bdcfed27399e4271840482e7a39992b"
+        }
+      },
+      "capabilities": [
+        "image.generate",
+        "video.generate"
+      ],
+      "title": {
+        "en": "Video Continuity",
+        "zh": "视频连贯性"
+      },
+      "summary": {
+        "en": "Establish spatial anchors, identity anchors, and first/last frame chain plans before generation to prevent axis jumps, identity drift, and lighting inconsistency across separately generated clips.",
+        "zh": "在生成前建立空间锚点、身份锚点和首尾帧接龙计划，防止分镜间的轴线跳跃、身份漂移和光线不一致。"
+      },
+      "bestFor": {
+        "en": "Multi-shot productions with recurring characters and locations.",
+        "zh": "包含重复角色和场景的多镜头制作。"
+      },
+      "inputs": {
+        "en": [
+          "Shot plan",
+          "Character reference node IDs",
+          "Scene reference node IDs"
+        ],
+        "zh": [
+          "分镜计划",
+          "角色参考节点 ID",
+          "场景参考节点 ID"
+        ]
+      },
+      "outputs": {
+        "en": [
+          "Continuity contract",
+          "Spatial anchor sentences",
+          "First/last frame chain plan",
+          "Assembly verification checklist"
+        ],
+        "zh": [
+          "连贯性契约",
+          "空间锚点句",
+          "首尾帧接龙计划",
+          "组装验证清单"
+        ]
+      },
+      "route": "/skills/video-continuity",
+      "install": "npx skills add leozejia/sorryassets-skills --skill video-continuity -a codex -a claude-code -g -y",
+      "installTargets": {
+        "codex": "npx skills add leozejia/sorryassets-skills --skill video-continuity -a codex -g -y",
+        "claudeCode": "npx skills add leozejia/sorryassets-skills --skill video-continuity -a claude-code -g -y"
+      },
+      "proof": {
+        "nodes": {
+          "en": [
+            "continuity contract",
+            "spatial anchor sentences",
+            "chain plan",
+            "assembly checklist"
+          ],
+          "zh": [
+            "连贯性契约",
+            "空间锚点句",
+            "接龙计划",
+            "组装清单"
+          ]
+        },
+        "note": {
+          "en": "Preview contract only; installed real-result acceptance has not run yet.",
+          "zh": "仅为预览契约；尚未完成安装态真实结果验收。"
         }
       }
     }

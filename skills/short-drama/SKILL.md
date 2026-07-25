@@ -10,6 +10,13 @@ SorryAssets project. Own the creative reasoning in the calling agent. Use
 SorryAssets for atomic tools, model access, durable project state, and local
 delivery; never ask it to interpret or execute this method.
 
+Before writing any shot prompts, read:
+- `references/cinematography.md` — shot scale, camera angle, movement vocabulary,
+  continuity rules, and short-format story structure
+- `references/shot-prompt-format.md` — the standard multi-shot prompt structure
+- `references/defects.md` — AI video defect types, prevention, and remediation
+- The model card in `references/models/` for the binding you select
+
 ## Inputs
 
 - Require a premise or creative brief and the current execution authority.
@@ -29,7 +36,9 @@ delivery; never ask it to interpret or execute this method.
    budget/attempt boundary, and compatible public bindings in text nodes.
 3. State the narrative promise, causal progression, decisive change, and final
    image or resolution. Make every planned beat serve that spine.
-4. Resolve material ambiguity before spending. Make and record routine creative
+4. Apply the causal chain test from `references/cinematography.md`: every scene
+   connection must be "therefore" or "but," never "and then."
+5. Resolve material ambiguity before spending. Make and record routine creative
    choices when the brief permits them; pause only for a choice that changes
    scope, authority, safety, or cost.
 
@@ -38,12 +47,15 @@ delivery; never ask it to interpret or execute this method.
 1. Use `prompts/production-bible.md` to define the visual grammar and a
    continuity ledger for characters, locations, props, light/color, screen
    direction, transformation rules, and recurring motifs.
-2. Separate immutable identity anchors from intentional changes. Describe each
+2. Assign each principal character a signature color and silhouette anchor.
+   See `references/cinematography.md` — Lighting and the character-creation
+   Skill for anchor design principles.
+3. Separate immutable identity anchors from intentional changes. Describe each
    anchor with visible, testable traits rather than names alone.
-3. Plan reusable assets before shot-specific media: character references,
+4. Plan reusable assets before shot-specific media: character references,
    location/scene references, prop references, keyframes, and any predecessor
    media needed for continuity.
-4. Map every planned asset to a purpose, a selected node id when available, and
+5. Map every planned asset to a purpose, a selected node id when available, and
    an input role declared by a live binding. Do not generate an asset with no
    downstream decision or compatible role.
 
@@ -54,14 +66,19 @@ delivery; never ask it to interpret or execute this method.
 2. Use `prompts/storyboard.md` to derive the ordered shot sequence. Derive shot
    count and timing from the story and catalog limits; do not begin from a
    fixed template.
-3. For every shot, record narrative purpose, start state, end state, visible
-   action, character/prop state, framing, camera behavior, lighting, screen
-   direction, transition, sound needs, references, and pass criteria.
+3. For every shot, use the format in `references/shot-prompt-format.md`. Record:
+   - Narrative purpose and target duration
+   - Scale, angle, and camera move (vocabulary from `references/cinematography.md`)
+   - Start state and end state for character, prop, location, and screen direction
+   - Spatial anchor sentence (required for any scene with two or more characters)
+   - Lighting anchor consistent with the production bible
+   - Reference node IDs and their roles
+   - Observable pass criteria
 4. Mark a shot ready only when its action fits its duration, required anchors
    are represented, its start follows the preceding accepted end state, its end
    enables the next transition, and every requested input role is supported.
-5. Use files in `prompts/` as writing scaffolds. Adapt their placeholders; they
-   are neither defaults nor executable workflow steps.
+5. Plan first/last frame chaining for shots that exceed the model's native
+   generation length. See the model card for the selected binding.
 
 ### 4. Develop and select visual material
 
@@ -81,7 +98,8 @@ decision is resolved; never enter an unbounded variation loop.
 For each shot that passed readiness:
 
 1. Select an exact `video.generate` binding compatible with the required input
-   roles and output constraints.
+   roles and output constraints. Check the model card in `references/models/`
+   for input role names, reference image limits, and parameter constraints.
 2. Build the request only from roles and values declared by that binding.
    Reference media, boundary frames, predecessor clips, or other shapes are
    valid only when the binding declares them and the shot plan needs them.
@@ -90,9 +108,10 @@ For each shot that passed readiness:
 4. Record the intended start/end state, supplied references, and pass criteria;
    then submit with `generate_on_node` and poll `list_project_graph` until
    terminal. Success requires terminal backend evidence and a local file path.
-5. Review each delivered take against narrative purpose, continuity anchors,
-   action and camera legibility, transition state, visual defects, and technical
-   delivery. Record accept/reject, evidence, and one diagnosis for a rejection.
+5. Review each delivered take using the checklist in `references/defects.md`.
+   Check identity, anatomy, spatial consistency, flickering, text, lip sync,
+   physics, and motion in that order. Record accept/reject, evidence, and the
+   defect type for any rejection.
 6. Propagate only accepted, useful reference evidence to later shots. Do not
    compound a defect merely to preserve sequence.
 7. Record the public model, task ref, charge, local path, selection decision,
