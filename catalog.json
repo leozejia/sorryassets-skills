@@ -10,179 +10,50 @@
   },
   "categories": [
     {
-      "id": "character-assets",
-      "title": {
-        "en": "Character Assets",
-        "zh": "角色资产"
-      },
-      "description": {
-        "en": "Build reusable character references, portraits, and variant sets.",
-        "zh": "生成可复用的角色参考、肖像和变体组。"
-      },
-      "items": [
-        "character-creation"
-      ]
-    },
-    {
-      "id": "scene-assets",
-      "title": {
-        "en": "Scene Assets",
-        "zh": "场景资产"
-      },
-      "description": {
-        "en": "Build spatial anchor images that lock a location's layout, light, and palette for consistent multi-shot production.",
-        "zh": "生成空间锚点图，锁定场景的布局、光线和色调，确保多镜头制作的视觉一致性。"
-      },
-      "items": [
-        "scene-development"
-      ]
-    },
-    {
       "id": "narrative-video",
       "title": {
         "en": "Narrative Video",
         "zh": "叙事视频"
       },
       "description": {
-        "en": "Turn varied briefs into planned, generated, and locally assembled screen stories.",
-        "zh": "把不同创意简报转化为经过规划、生成和本地组装的叙事视频。"
+        "en": "Turn a story brief into a coherent short film: characters, scenes, shot plan, generated media, and a locally assembled video.",
+        "zh": "把故事简报转化为连贯短片：角色、场景、镜头计划、生成媒体和本地成片。"
       },
       "items": [
-        "short-drama",
-        "video-continuity"
+        "narrative-short"
+      ]
+    },
+    {
+      "id": "commercial-video",
+      "title": {
+        "en": "Commercial Video",
+        "zh": "商业视频"
+      },
+      "description": {
+        "en": "Turn a product or brand brief into a persuasive short video with locked product fidelity and a single clear message.",
+        "zh": "把产品或品牌简报转化为有说服力的短视频，锁定产品还原度和单一清晰信息。"
+      },
+      "items": [
+        "commercial-short"
       ]
     }
   ],
   "skills": [
     {
-      "id": "character-creation",
-      "name": "character-creation",
-      "status": "preview",
-      "category": "character-assets",
-      "path": "skills/character-creation",
-      "skillPath": "skills/character-creation/SKILL.md",
-      "package": {
-        "digest": "fb555c974f138101f59b6740b3c53b0112bb74b5fc276ec1167e763bad273ff5",
-        "totalBytes": 22979,
-        "files": [
-          {
-            "path": "prompts/character.md",
-            "bytes": 565,
-            "sha256": "2e6c1c41878c48389f5cc8c86a6a563ebac82f84ef8fde8b5a76371a749dfd62"
-          },
-          {
-            "path": "references/defects.md",
-            "bytes": 6977,
-            "sha256": "d338eb6305877a8967589389bb5c9de9af463bce9aefe1fc09e5f5811bd6c0fa"
-          },
-          {
-            "path": "references/identity-anchors.md",
-            "bytes": 6337,
-            "sha256": "a082722e8e28e37e95bdd3683995a83471b1f328c9d3287550a73f2fb9b2ade5"
-          },
-          {
-            "path": "references/models/flux-2-pro.md",
-            "bytes": 2277,
-            "sha256": "b6d31cf04f4552a2e30fa4d7a306fe0d339d76ea966a5ddd5a053990425ab35f"
-          },
-          {
-            "path": "references/models/nano-banana-2.md",
-            "bytes": 2564,
-            "sha256": "bc678f67a95a465615a5eae5ce05c4614d07a38749367663c4c1a98099d0a1b9"
-          },
-          {
-            "path": "SKILL.md",
-            "bytes": 4259,
-            "sha256": "3da9f970912f90ecc77cee0265c4bef6b1925fb2835e357ddd64dda5afe14b93"
-          }
-        ],
-        "bundle": {
-          "format": "zip",
-          "url": "https://dl.sorryassets.com/skills/sha256/ad6ff13a15331fea42df329cec787027bc72521a31aa95cb2a826447874693c6.zip",
-          "bytes": 23745,
-          "sha256": "ad6ff13a15331fea42df329cec787027bc72521a31aa95cb2a826447874693c6"
-        }
-      },
-      "capabilities": [
-        "image.generate"
-      ],
-      "title": {
-        "en": "Character Creation",
-        "zh": "角色创建"
-      },
-      "summary": {
-        "en": "Start from a character description, generate a few visual directions, and let the agent score and keep the strongest image as a reusable character reference.",
-        "zh": "输入角色描述，生成若干视觉方向，由 Agent 打分并保留最强结果作为可复用角色参考。"
-      },
-      "bestFor": {
-        "en": "Game characters, AI comic casts, reference portraits, and style exploration.",
-        "zh": "游戏角色、AI 漫剧演员、参考肖像和风格探索。"
-      },
-      "inputs": {
-        "en": [
-          "Character description"
-        ],
-        "zh": [
-          "角色描述"
-        ]
-      },
-      "outputs": {
-        "en": [
-          "Portrait variants",
-          "Reusable character reference",
-          "Creation trail"
-        ],
-        "zh": [
-          "肖像变体",
-          "可复用角色参考",
-          "创作脉络"
-        ]
-      },
-      "route": "/skills/character-creation",
-      "install": "npx skills add leozejia/sorryassets-skills --skill character-creation -a codex -a claude-code -g -y",
-      "installTargets": {
-        "codex": "npx skills add leozejia/sorryassets-skills --skill character-creation -a codex -g -y",
-        "claudeCode": "npx skills add leozejia/sorryassets-skills --skill character-creation -a claude-code -g -y"
-      },
-      "proof": {
-        "nodes": {
-          "en": [
-            "character brief",
-            "bounded candidates",
-            "selected reference"
-          ],
-          "zh": [
-            "角色简报",
-            "有界候选",
-            "选定参考"
-          ]
-        },
-        "note": {
-          "en": "Preview contract only; installed real-result acceptance has not run yet.",
-          "zh": "仅为预览契约；尚未完成安装态真实结果验收。"
-        }
-      }
-    },
-    {
-      "id": "short-drama",
-      "name": "short-drama",
+      "id": "narrative-short",
+      "name": "narrative-short",
       "status": "preview",
       "category": "narrative-video",
-      "path": "skills/short-drama",
-      "skillPath": "skills/short-drama/SKILL.md",
+      "path": "skills/narrative-short",
+      "skillPath": "skills/narrative-short/SKILL.md",
       "package": {
-        "digest": "b171dc662edc7b4b678d3ca60c6e4348ffed8bbfd6f650f95a03c86ef68816af",
-        "totalBytes": 56391,
+        "digest": "c5158b322d4c2cf839e7a3f9284a8ca9f7c55d5a0c7d1ef9b48a40ce6024a3ea",
+        "totalBytes": 75370,
         "files": [
           {
-            "path": "prompts/extract-characters.md",
-            "bytes": 338,
-            "sha256": "a18aba420f91023fb7fe6e0aeb42cdcf9abe1e4d52de58e3b1b2ce3a8d4cc7eb"
-          },
-          {
             "path": "prompts/final-review.md",
-            "bytes": 2395,
-            "sha256": "acc385c7c718f217b1cd24a4cc3a18ccce9163a405f32aee42c78e14e6ac2cb3"
+            "bytes": 2413,
+            "sha256": "e4bdfd67078bd9ffe8a027fa6bfb0f61d78a3477d547401a9f713fce48b3fca1"
           },
           {
             "path": "prompts/production-bible.md",
@@ -195,34 +66,44 @@
             "sha256": "b6450225f5e15bdfe2c54fb546f7d8023000dfdb65d9b431341874c71a0702da"
           },
           {
-            "path": "prompts/shot-image.md",
-            "bytes": 789,
-            "sha256": "a9ae157d8df60c64316bf7cac98b2f5ec4fcd8e7efabea990cbc469d3a0476ea"
-          },
-          {
-            "path": "prompts/shot-video.md",
-            "bytes": 1746,
-            "sha256": "f7b322a446bb7f53872e738718a022dbde6abd329b06067b9c0242433b11b02e"
-          },
-          {
             "path": "prompts/storyboard.md",
-            "bytes": 2528,
-            "sha256": "97f2a78dbb9a5bd74db9057ab180c19af485fa4853011f4ac39941d3fc56bb72"
+            "bytes": 2534,
+            "sha256": "e057b7258d951013fc01b742d5ce0496f8089dcfe7dbda478c6fbad77ff55c27"
           },
           {
-            "path": "references/cinematography.md",
+            "path": "references/.sync.json",
+            "bytes": 415,
+            "sha256": "1a60d55edd3c1228f7186439fb96cde6efd93e9976d073385479d97dfb32b9ae"
+          },
+          {
+            "path": "references/craft/cinematography.md",
             "bytes": 9654,
             "sha256": "17aa9bd22de31d00313ce18c1729681635f851a237c82dd5c2392c244c0c004b"
           },
           {
-            "path": "references/defects.md",
-            "bytes": 6857,
-            "sha256": "d2f9a738603a64b350feb81740d3085d5e06de951e32a892d686e19726bb39d8"
+            "path": "references/craft/defects.md",
+            "bytes": 6863,
+            "sha256": "a990c0c886e2ba8d72b3a72ebc5beb22c81144422f4d0d63b1c4a0c0033eb3dc"
+          },
+          {
+            "path": "references/craft/shot-prompt-format.md",
+            "bytes": 5034,
+            "sha256": "a469533608925bc439ce68e6366f6264c17bab4d15527fe6c61a16d8887ea85a"
+          },
+          {
+            "path": "references/models/flux-2-pro.md",
+            "bytes": 2277,
+            "sha256": "b6d31cf04f4552a2e30fa4d7a306fe0d339d76ea966a5ddd5a053990425ab35f"
+          },
+          {
+            "path": "references/models/nano-banana-2.md",
+            "bytes": 2564,
+            "sha256": "bc678f67a95a465615a5eae5ce05c4614d07a38749367663c4c1a98099d0a1b9"
           },
           {
             "path": "references/models/seedance-1.5-pro.md",
-            "bytes": 2954,
-            "sha256": "2b3f8004690141a088c05c87f1e0d7340e795ceb15c3904a123ad913094e593f"
+            "bytes": 2966,
+            "sha256": "44b7797bf27a10eef2767dcac3412cc0a0638521167e15df2af9d5afade1e311"
           },
           {
             "path": "references/models/veo-3.1.md",
@@ -230,9 +111,44 @@
             "sha256": "491d7d056372f370b8c9e5dd0470c3e738a3f26f08d25edbdcbb713ff3cd2167"
           },
           {
-            "path": "references/shot-prompt-format.md",
-            "bytes": 5028,
-            "sha256": "bf129b516214c3cd4d429688b26c0fa7f7f060d8c5753fcb093e8d3872bc4b14"
+            "path": "references/stages/character-assets.md",
+            "bytes": 4489,
+            "sha256": "923f6c90e82a52a6f5c61d04613568d5012d28466f1ebc7a6c24cabb7cc97b19"
+          },
+          {
+            "path": "references/stages/continuity.md",
+            "bytes": 3558,
+            "sha256": "6341e54368ea9c41bf59cb5e68f2b14409aa87d43dbd11df27b5af14a8ae4ff0"
+          },
+          {
+            "path": "references/stages/scene-assets.md",
+            "bytes": 3417,
+            "sha256": "93b5adc733608c76e616d89ec7c178f70ab2c0fa231064ddf7b903a6cf0ecc99"
+          },
+          {
+            "path": "references/styles/clean-commercial.md",
+            "bytes": 1696,
+            "sha256": "c8a22a9834a5033490cddc427a98b243d185df600da8178257851abc99c05fd6"
+          },
+          {
+            "path": "references/styles/cyberpunk.md",
+            "bytes": 1567,
+            "sha256": "003abc69de723ab77dc2c745b2ce6dfc624c8cbcb2a3e28e16582403ab3d7132"
+          },
+          {
+            "path": "references/styles/documentary.md",
+            "bytes": 1594,
+            "sha256": "92d03a7b498fbc519430835064b631ea9d75228ef08a8376fa11ed3b5b3e8162"
+          },
+          {
+            "path": "references/styles/pixar.md",
+            "bytes": 1631,
+            "sha256": "7a02a7515426932100f3fa94cc8b5b38263a04845c8902ff885c23add1a7fff2"
+          },
+          {
+            "path": "references/styles/wong-kar-wai.md",
+            "bytes": 1646,
+            "sha256": "010e243588e9670a9004c68df5a938e611b372a0fa6436abad511a1df9bcc928"
           },
           {
             "path": "scripts/assemble-video.mjs",
@@ -246,15 +162,15 @@
           },
           {
             "path": "SKILL.md",
-            "bytes": 8529,
-            "sha256": "6c041d41aa63dc3c3f59b4355535c982c22e6e861bfccc2203d83479bb80bb0b"
+            "bytes": 5479,
+            "sha256": "5c2841a4e321499cf8c7c103b317d33aa8fb382bb6a5355e943579cce77476ff"
           }
         ],
         "bundle": {
           "format": "zip",
-          "url": "https://dl.sorryassets.com/skills/sha256/5223eb83ce5be003908c6c26a6abefacbbeb4f807a4c69fb5ccb9eb6be34ea0c.zip",
-          "bytes": 58301,
-          "sha256": "5223eb83ce5be003908c6c26a6abefacbbeb4f807a4c69fb5ccb9eb6be34ea0c"
+          "url": "https://dl.sorryassets.com/skills/sha256/4b047a77dc09f4bcf59757bfa3ec60a3153f351a3e15d687eaf972c7d4e1e1bc.zip",
+          "bytes": 78472,
+          "sha256": "4b047a77dc09f4bcf59757bfa3ec60a3153f351a3e15d687eaf972c7d4e1e1bc"
         }
       },
       "capabilities": [
@@ -262,217 +178,191 @@
         "video.generate"
       ],
       "title": {
-        "en": "AI Short Drama",
-        "zh": "AI 短剧"
+        "en": "Narrative Short Film",
+        "zh": "叙事短片"
       },
       "summary": {
-        "en": "Turn a short-form narrative brief into a script, cast, coherent shot plan, generated media, and an inspectable local video.",
-        "zh": "把短篇叙事简报转化为剧本、角色、连贯镜头计划、生成媒体和可检查的本地视频。"
+        "en": "Turn a premise into a coherent short film: story spine, character and scene assets, a shot plan with camera language, image-to-video generation, chaining, local assembly, and whole-film review.",
+        "zh": "把故事前提转化为连贯短片：故事主线、角色与场景资产、含镜头语言的分镜计划、图生视频、接龙、本地组装和整片审查。"
       },
       "bestFor": {
-        "en": "Short drama, narrative promos, social stories, and other compact screen narratives.",
-        "zh": "短剧、叙事宣传片、社交故事和其他紧凑的屏幕叙事。"
+        "en": "Emotional story-driven short films, narrative promos, and social stories, in any requested visual style.",
+        "zh": "情感与故事驱动的短片、叙事宣传片和社交故事，可套用任意视觉风格。"
       },
       "inputs": {
         "en": [
           "Premise or creative brief",
+          "Optional style",
           "Optional delivery constraints"
         ],
         "zh": [
           "故事前提或创意简报",
+          "可选视觉风格",
           "可选交付约束"
         ]
       },
       "outputs": {
         "en": [
-          "Script",
-          "Cast",
+          "Story spine and script",
+          "Character and scene assets",
           "Shot plan",
           "Generated media",
-          "Final local video"
+          "Final local film"
         ],
         "zh": [
-          "剧本",
-          "角色",
-          "镜头计划",
+          "故事主线和剧本",
+          "角色和场景资产",
+          "分镜计划",
           "生成媒体",
           "本地成片"
         ]
       },
-      "route": "/skills/short-drama",
-      "install": "npx skills add leozejia/sorryassets-skills --skill short-drama -a codex -a claude-code -g -y",
+      "route": "/skills/narrative-short",
+      "install": "npx skills add leozejia/sorryassets-skills --skill narrative-short -a codex -a claude-code -g -y",
       "installTargets": {
-        "codex": "npx skills add leozejia/sorryassets-skills --skill short-drama -a codex -g -y",
-        "claudeCode": "npx skills add leozejia/sorryassets-skills --skill short-drama -a claude-code -g -y"
+        "codex": "npx skills add leozejia/sorryassets-skills --skill narrative-short -a codex -g -y",
+        "claudeCode": "npx skills add leozejia/sorryassets-skills --skill narrative-short -a claude-code -g -y"
       },
       "proof": {
         "nodes": {
           "en": [
             "brief",
-            "script and cast",
+            "characters and scenes",
             "shot plan",
             "generated media",
-            "local result"
+            "final film"
           ],
           "zh": [
             "简报",
-            "剧本和角色",
-            "镜头计划",
+            "角色和场景",
+            "分镜计划",
             "生成媒体",
-            "本地结果"
+            "成片"
           ]
         },
         "note": {
-          "en": "Preview contract only; duration, format, model, and input roles come from each brief and the live catalog.",
-          "zh": "仅为预览契约；时长、格式、模型和输入角色由每次简报与实时目录决定。"
+          "en": "Preview contract only; duration, format, style, model, and input roles come from each brief and the live catalog.",
+          "zh": "仅为预览契约；时长、格式、风格、模型和输入角色由每次简报与实时目录决定。"
         }
       }
     },
     {
-      "id": "scene-development",
-      "name": "scene-development",
+      "id": "commercial-short",
+      "name": "commercial-short",
       "status": "preview",
-      "category": "scene-assets",
-      "path": "skills/scene-development",
-      "skillPath": "skills/scene-development/SKILL.md",
+      "category": "commercial-video",
+      "path": "skills/commercial-short",
+      "skillPath": "skills/commercial-short/SKILL.md",
       "package": {
-        "digest": "b0f9c8df1867a8e2a38c5195e469fc9aa1e62368ce411bca5ae33066a2afb0b1",
-        "totalBytes": 17810,
+        "digest": "05124df345ed57109d07cc7d8bf9d539984f3749528e1e7e6140fe77e1ec7057",
+        "totalBytes": 68026,
         "files": [
           {
-            "path": "prompts/scene-brief.md",
-            "bytes": 1834,
-            "sha256": "fb782f65f21d076b138a216fe275ac5358c245750f28a7de9feff4f913a00180"
+            "path": "prompts/final-review.md",
+            "bytes": 2052,
+            "sha256": "9850c1780c5c5728856267cb614874f6faa2935e65334dd06da22b396e06836b"
           },
           {
-            "path": "prompts/scene-review.md",
-            "bytes": 1725,
-            "sha256": "5e3b53bea60f9422e58b8d96635e1c0ab29eeed9d1adc445e219206c6d283726"
+            "path": "prompts/message-plan.md",
+            "bytes": 1728,
+            "sha256": "d2fcae1a7ce5662c9002b9acfb682c7a076e697cf3f974fa6544acca5bd96972"
           },
           {
-            "path": "references/cinematography.md",
+            "path": "references/.sync.json",
+            "bytes": 388,
+            "sha256": "09383a95ab3a5e114b0eac3d4c28ecac49348ca54e9e2af9999da3acbb24d014"
+          },
+          {
+            "path": "references/craft/cinematography.md",
             "bytes": 9654,
             "sha256": "17aa9bd22de31d00313ce18c1729681635f851a237c82dd5c2392c244c0c004b"
           },
           {
+            "path": "references/craft/defects.md",
+            "bytes": 6863,
+            "sha256": "a990c0c886e2ba8d72b3a72ebc5beb22c81144422f4d0d63b1c4a0c0033eb3dc"
+          },
+          {
+            "path": "references/craft/shot-prompt-format.md",
+            "bytes": 5034,
+            "sha256": "a469533608925bc439ce68e6366f6264c17bab4d15527fe6c61a16d8887ea85a"
+          },
+          {
+            "path": "references/models/flux-2-pro.md",
+            "bytes": 2277,
+            "sha256": "b6d31cf04f4552a2e30fa4d7a306fe0d339d76ea966a5ddd5a053990425ab35f"
+          },
+          {
+            "path": "references/models/nano-banana-2.md",
+            "bytes": 2564,
+            "sha256": "bc678f67a95a465615a5eae5ce05c4614d07a38749367663c4c1a98099d0a1b9"
+          },
+          {
+            "path": "references/models/seedance-1.5-pro.md",
+            "bytes": 2966,
+            "sha256": "44b7797bf27a10eef2767dcac3412cc0a0638521167e15df2af9d5afade1e311"
+          },
+          {
+            "path": "references/models/veo-3.1.md",
+            "bytes": 3001,
+            "sha256": "491d7d056372f370b8c9e5dd0470c3e738a3f26f08d25edbdcbb713ff3cd2167"
+          },
+          {
+            "path": "references/stages/continuity.md",
+            "bytes": 3558,
+            "sha256": "6341e54368ea9c41bf59cb5e68f2b14409aa87d43dbd11df27b5af14a8ae4ff0"
+          },
+          {
+            "path": "references/stages/scene-assets.md",
+            "bytes": 3417,
+            "sha256": "93b5adc733608c76e616d89ec7c178f70ab2c0fa231064ddf7b903a6cf0ecc99"
+          },
+          {
+            "path": "references/styles/clean-commercial.md",
+            "bytes": 1696,
+            "sha256": "c8a22a9834a5033490cddc427a98b243d185df600da8178257851abc99c05fd6"
+          },
+          {
+            "path": "references/styles/cyberpunk.md",
+            "bytes": 1567,
+            "sha256": "003abc69de723ab77dc2c745b2ce6dfc624c8cbcb2a3e28e16582403ab3d7132"
+          },
+          {
+            "path": "references/styles/documentary.md",
+            "bytes": 1594,
+            "sha256": "92d03a7b498fbc519430835064b631ea9d75228ef08a8376fa11ed3b5b3e8162"
+          },
+          {
+            "path": "references/styles/pixar.md",
+            "bytes": 1631,
+            "sha256": "7a02a7515426932100f3fa94cc8b5b38263a04845c8902ff885c23add1a7fff2"
+          },
+          {
+            "path": "references/styles/wong-kar-wai.md",
+            "bytes": 1646,
+            "sha256": "010e243588e9670a9004c68df5a938e611b372a0fa6436abad511a1df9bcc928"
+          },
+          {
+            "path": "scripts/assemble-video.mjs",
+            "bytes": 6448,
+            "sha256": "9833bd0fa0b88aa766513a9d02407962a717207829c9b6dd5acabc66cebabdb2"
+          },
+          {
+            "path": "scripts/assemble-video.selftest.mjs",
+            "bytes": 3981,
+            "sha256": "96d6cdae3d5ca83a17ddefe734a66a6568f5b49bf1f0bd762beaf3f8d5a194a6"
+          },
+          {
             "path": "SKILL.md",
-            "bytes": 4597,
-            "sha256": "b99385e3048c8d0544936b8f6e84641e74737d8c441c3586d545fc5149b2a35d"
+            "bytes": 5961,
+            "sha256": "8d532147ea8dfad4ce1b424d5b82139fba8b9b84dc5bd816ceb4fe529ef9e9de"
           }
         ],
         "bundle": {
           "format": "zip",
-          "url": "https://dl.sorryassets.com/skills/sha256/55aedea17671cf466e97b494103dd78dbd67bb6d277d6ac098122276e101dff7.zip",
-          "bytes": 18298,
-          "sha256": "55aedea17671cf466e97b494103dd78dbd67bb6d277d6ac098122276e101dff7"
-        }
-      },
-      "capabilities": [
-        "image.generate"
-      ],
-      "title": {
-        "en": "Scene Development",
-        "zh": "场景开发"
-      },
-      "summary": {
-        "en": "Turn a location description into a spatial anchor image that locks the layout, light direction, and color palette for all shots in that scene.",
-        "zh": "把场景描述转化为空间锚点图，锁定该场景所有镜头的布局、光线方向和色调。"
-      },
-      "bestFor": {
-        "en": "Recurring locations in multi-shot productions, mood boards, and scene reference libraries.",
-        "zh": "多镜头制作中的重复场景、氛围板和场景参考库。"
-      },
-      "inputs": {
-        "en": [
-          "Location description",
-          "Optional style references"
-        ],
-        "zh": [
-          "场景描述",
-          "可选风格参考"
-        ]
-      },
-      "outputs": {
-        "en": [
-          "Scene anchor image",
-          "Spatial anchor summary",
-          "Creation trail"
-        ],
-        "zh": [
-          "场景锚点图",
-          "空间锚点摘要",
-          "创作脉络"
-        ]
-      },
-      "route": "/skills/scene-development",
-      "install": "npx skills add leozejia/sorryassets-skills --skill scene-development -a codex -a claude-code -g -y",
-      "installTargets": {
-        "codex": "npx skills add leozejia/sorryassets-skills --skill scene-development -a codex -g -y",
-        "claudeCode": "npx skills add leozejia/sorryassets-skills --skill scene-development -a claude-code -g -y"
-      },
-      "proof": {
-        "nodes": {
-          "en": [
-            "location brief",
-            "anchor candidates",
-            "selected anchor image",
-            "spatial anchor summary"
-          ],
-          "zh": [
-            "场景简报",
-            "锚点候选",
-            "选定锚点图",
-            "空间锚点摘要"
-          ]
-        },
-        "note": {
-          "en": "Preview contract only; installed real-result acceptance has not run yet.",
-          "zh": "仅为预览契约；尚未完成安装态真实结果验收。"
-        }
-      }
-    },
-    {
-      "id": "video-continuity",
-      "name": "video-continuity",
-      "status": "preview",
-      "category": "narrative-video",
-      "path": "skills/video-continuity",
-      "skillPath": "skills/video-continuity/SKILL.md",
-      "package": {
-        "digest": "2492cd7220ca29d3f8667c47309dd9f3f5065543601e98265d93189342094fd7",
-        "totalBytes": 26326,
-        "files": [
-          {
-            "path": "prompts/continuity-contract.md",
-            "bytes": 2249,
-            "sha256": "33394797c6d0bc2e782bd620ec06affb46d3806a9e790e31ad2968d0c2763df6"
-          },
-          {
-            "path": "prompts/continuity-review.md",
-            "bytes": 2035,
-            "sha256": "21aa2d117834699026f7ce6475124585707d73a29686fd6a717e4d3f01cf2170"
-          },
-          {
-            "path": "references/cinematography.md",
-            "bytes": 9654,
-            "sha256": "17aa9bd22de31d00313ce18c1729681635f851a237c82dd5c2392c244c0c004b"
-          },
-          {
-            "path": "references/defects.md",
-            "bytes": 6857,
-            "sha256": "d2f9a738603a64b350feb81740d3085d5e06de951e32a892d686e19726bb39d8"
-          },
-          {
-            "path": "SKILL.md",
-            "bytes": 5531,
-            "sha256": "978144d7dcab217734637e2051c13971a9caca3d19aa5c3f2d1b20c2c5229f7c"
-          }
-        ],
-        "bundle": {
-          "format": "zip",
-          "url": "https://dl.sorryassets.com/skills/sha256/dc06159cc08ae9b0d749ed816448fa5f0bdcfed27399e4271840482e7a39992b.zip",
-          "bytes": 26958,
-          "sha256": "dc06159cc08ae9b0d749ed816448fa5f0bdcfed27399e4271840482e7a39992b"
+          "url": "https://dl.sorryassets.com/skills/sha256/9508c1092f82dc5860405d1e8b32841a15586e384aaddbbc286598ee11c73324.zip",
+          "bytes": 70742,
+          "sha256": "9508c1092f82dc5860405d1e8b32841a15586e384aaddbbc286598ee11c73324"
         }
       },
       "capabilities": [
@@ -480,67 +370,73 @@
         "video.generate"
       ],
       "title": {
-        "en": "Video Continuity",
-        "zh": "视频连贯性"
+        "en": "Commercial Short Video",
+        "zh": "商业短视频"
       },
       "summary": {
-        "en": "Establish spatial anchors, identity anchors, and first/last frame chain plans before generation to prevent axis jumps, identity drift, and lighting inconsistency across separately generated clips.",
-        "zh": "在生成前建立空间锚点、身份锚点和首尾帧接龙计划，防止分镜间的轴线跳跃、身份漂移和光线不一致。"
+        "en": "Turn a product or brand brief into a persuasive short video: lock product fidelity, land one message, plan sell-point shots, generate image-to-video, and close with a call to action.",
+        "zh": "把产品或品牌简报转化为有说服力的短视频：锁定产品还原度、传达单一信息、规划卖点镜头、图生视频，并以行动号召收尾。"
       },
       "bestFor": {
-        "en": "Multi-shot productions with recurring characters and locations.",
-        "zh": "包含重复角色和场景的多镜头制作。"
+        "en": "Product demos, advertising spots, and conversion-oriented commercial short video, in any requested visual style.",
+        "zh": "产品演示、广告片和以转化为导向的商业短视频，可套用任意视觉风格。"
       },
       "inputs": {
         "en": [
-          "Shot plan",
-          "Character reference node IDs",
-          "Scene reference node IDs"
+          "Product or brand brief",
+          "Product reference images",
+          "Optional style",
+          "Optional delivery constraints"
         ],
         "zh": [
-          "分镜计划",
-          "角色参考节点 ID",
-          "场景参考节点 ID"
+          "产品或品牌简报",
+          "产品参考图",
+          "可选视觉风格",
+          "可选交付约束"
         ]
       },
       "outputs": {
         "en": [
-          "Continuity contract",
-          "Spatial anchor sentences",
-          "First/last frame chain plan",
-          "Assembly verification checklist"
+          "Single message and CTA",
+          "Locked product reference",
+          "Sell-point shot plan",
+          "Generated media",
+          "Final local commercial"
         ],
         "zh": [
-          "连贯性契约",
-          "空间锚点句",
-          "首尾帧接龙计划",
-          "组装验证清单"
+          "单一信息和行动号召",
+          "锁定的产品参考",
+          "卖点镜头计划",
+          "生成媒体",
+          "本地成片"
         ]
       },
-      "route": "/skills/video-continuity",
-      "install": "npx skills add leozejia/sorryassets-skills --skill video-continuity -a codex -a claude-code -g -y",
+      "route": "/skills/commercial-short",
+      "install": "npx skills add leozejia/sorryassets-skills --skill commercial-short -a codex -a claude-code -g -y",
       "installTargets": {
-        "codex": "npx skills add leozejia/sorryassets-skills --skill video-continuity -a codex -g -y",
-        "claudeCode": "npx skills add leozejia/sorryassets-skills --skill video-continuity -a claude-code -g -y"
+        "codex": "npx skills add leozejia/sorryassets-skills --skill commercial-short -a codex -g -y",
+        "claudeCode": "npx skills add leozejia/sorryassets-skills --skill commercial-short -a claude-code -g -y"
       },
       "proof": {
         "nodes": {
           "en": [
-            "continuity contract",
-            "spatial anchor sentences",
-            "chain plan",
-            "assembly checklist"
+            "brief and single message",
+            "locked product reference",
+            "sell-point shot plan",
+            "generated media",
+            "final commercial"
           ],
           "zh": [
-            "连贯性契约",
-            "空间锚点句",
-            "接龙计划",
-            "组装清单"
+            "简报和单一信息",
+            "锁定的产品参考",
+            "卖点镜头计划",
+            "生成媒体",
+            "商业成片"
           ]
         },
         "note": {
-          "en": "Preview contract only; installed real-result acceptance has not run yet.",
-          "zh": "仅为预览契约；尚未完成安装态真实结果验收。"
+          "en": "Preview contract only; duration, format, style, model, and input roles come from each brief and the live catalog.",
+          "zh": "仅为预览契约；时长、格式、风格、模型和输入角色由每次简报与实时目录决定。"
         }
       }
     }
