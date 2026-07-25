@@ -12,6 +12,20 @@ verified immutable bundles from `dl.sorryassets.com`; it never downloads package
 files from GitHub. The `npx skills` commands below are the separate optional path
 for installing directly into an Agent host.
 
+## Building Skills
+
+Before adding or restructuring a Skill, read the construction constitution:
+
+- [`ARCHITECTURE.md`](ARCHITECTURE.md) — how Skills are cut (by finished-product
+  type), structured (thin `SKILL.md` + on-demand `references/`), and built.
+- [`docs/product-types.md`](docs/product-types.md) — the product-type roadmap
+  and why each type qualifies as distinct.
+- [`docs/styles.md`](docs/styles.md) — the style-library contract (styles are
+  data, not Skills).
+
+The Skills listed below are being restructured toward the product-type
+architecture. Until that lands, they remain in their current stage form.
+
 ## Install
 
 ### Recommended: `npx skills`
@@ -104,7 +118,7 @@ npx skills update -p -y
 Remove one Skill from Codex and Claude Code:
 
 ```bash
-npx skills remove character-creation -a codex -a claude-code -g
+npx skills remove narrative-short -a codex -a claude-code -g
 ```
 
 Remove all installed SorryAssets Skills by selecting them interactively:
@@ -115,11 +129,38 @@ npx skills remove -g
 
 ## Skills
 
-- `character-creation` — create reusable character reference images; the agent
-  scores variants and selects the strongest reference.
-- `short-drama` — turn varied short-form narrative briefs into scripts, casts,
-  shot plans, generated media, and locally assembled videos. Format and model
-  choices come from the brief and live catalog.
+Skills are cut by finished-product type (see [`ARCHITECTURE.md`](ARCHITECTURE.md)):
+
+- `narrative-short` — turn a story brief into a coherent short film: story spine,
+  character and scene assets, a shot plan with camera language, image-to-video
+  generation, first/last-frame chaining, local assembly, and whole-film review.
+  Covers requests like "a Pixar-style short about psychological healing."
+- `commercial-short` — turn a product or brand brief into a persuasive short
+  video: lock product fidelity, land one message, plan sell-point shots, generate
+  image-to-video, and close with a call to action. Covers requests like "a
+  commercial short for product X."
+
+Each Skill is a self-contained thick package: a thin `SKILL.md` skeleton plus an
+on-demand `references/` knowledge layer covering film craft (`craft/`), common
+production stages (`stages/`), a visual style library (`styles/`), and per-model
+capability cards (`models/`). A requested visual style is applied by loading a
+style entry; model cards are planning aids — the live catalog is always
+authoritative. Duration, format, style, and model come from the brief and the
+catalog, not from the Skill.
+
+## Shared references
+
+Canonical shared references live in [`_shared/`](_shared) (not a Skill package)
+and are copied into each Skill's `references/` so every Skill stays
+self-contained and independently installable. Each Skill's
+`references/.sync.json` declares which shared files it consumes.
+
+Edit shared material in `_shared/`, then re-sync:
+
+```bash
+npm run references:sync     # copy _shared/ into each Skill package
+npm run references:check    # fail if any copy has drifted (part of npm test)
+```
 
 ## Validate
 
@@ -127,15 +168,16 @@ npx skills remove -g
 npm test
 ```
 
-This checks that every Skill has standard frontmatter, rejects private runtime
-files and metadata, reproduces the declared bundle bytes, and verifies that the
-short-drama assembly helper can concatenate a bounded synthetic clip sequence
-(requires `ffmpeg` and `ffprobe` on PATH).
+This verifies shared references are in sync, checks that every Skill has
+standard frontmatter, rejects private runtime files and metadata, reproduces the
+declared bundle bytes, and runs each Skill's assembly-helper self-test (requires
+`ffmpeg` and `ffprobe` on PATH).
 
 After package contents change, refresh the deterministic manifest and bundle
 metadata before committing:
 
 ```bash
+npm run references:sync
 npm run bundles:sync
 npm test
 ```
