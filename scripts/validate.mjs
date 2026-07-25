@@ -105,6 +105,9 @@ if (catalog) {
     if (!new Set(["preview", "live", "coming-soon"]).has(skill.status)) {
       fail(`${skill.name}: invalid catalog status ${skill.status}`);
     }
+    if (typeof skill.version !== "string" || !/^\d+\.\d+\.\d+$/.test(skill.version)) {
+      fail(`${skill.name}: version must be semantic (MAJOR.MINOR.PATCH), got ${skill.version}`);
+    }
     const expected = packageManifests.get(skill.name);
     if (JSON.stringify(skill.package) !== JSON.stringify(expected)) {
       fail(`${skill.name}: package manifest does not match files on disk`);

@@ -22,6 +22,11 @@ Before adding or restructuring a Skill, read the construction constitution:
   and why each type qualifies as distinct.
 - [`docs/styles.md`](docs/styles.md) — the style-library contract (styles are
   data, not Skills).
+- [`docs/versioning-adoption.md`](docs/versioning-adoption.md) — design for the
+  product repo to present per-Skill semver instead of a git hash (deferred).
+
+Each Skill carries a semantic `version` in `catalog.json`; `npm test` enforces
+it. See the Versioning section of `ARCHITECTURE.md` for bump rules.
 
 The Skills listed below are being restructured toward the product-type
 architecture. Until that lands, they remain in their current stage form.

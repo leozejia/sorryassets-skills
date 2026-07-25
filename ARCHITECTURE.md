@@ -181,6 +181,37 @@ mean a Skill cannot *describe* a complete, deeply orchestrated workflow. The
 orchestration happens in the calling agent's reasoning, not inside SorryAssets.
 A Skill may therefore be as rich and end-to-end as the product type requires.
 
+## Versioning
+
+Each Skill carries a semantic `version` (`MAJOR.MINOR.PATCH`) in its catalog
+entry. This is the human-facing version identifier for a Skill — what a creator,
+the website, and the desktop Skill Hub should read to know which release of a
+Skill they have.
+
+Version is per-Skill, not per-repository: the two Skills evolve independently, so
+a change to `commercial-short` does not bump `narrative-short`. `validate.mjs`
+enforces a valid semver on every catalog entry.
+
+Bump rules:
+- **PATCH** — wording fixes, model-card data refresh, style tuning; no change to
+  the workflow contract or inputs/outputs.
+- **MINOR** — additive capability: a new stage reference, a new style, an
+  expanded workflow step that stays backward compatible.
+- **MAJOR** — a breaking change to the workflow contract, inputs, outputs, or
+  deliverable definition.
+
+Version is catalog metadata only. It is intentionally decoupled from the
+content-addressed package `digest` and bundle `sha256`, which are computed from
+the Skill directory's files and remain the integrity mechanism. `version` names
+the release; the digest proves the bytes.
+
+Relationship to `sourceCommit`: the catalog's repo-level `sourceCommit` records
+which source revision produced a published snapshot and is currently the key the
+desktop uses to identify an installed revision. Per-Skill `version` is the
+human-facing identifier layered on top. Migrating the product surfaces to present
+`version` instead of a git hash is a coordinated change owned by the `sorryassets`
+product repo; see `docs/versioning-adoption.md`.
+
 ## Skill Quality Bar
 
 A product-type Skill must:
