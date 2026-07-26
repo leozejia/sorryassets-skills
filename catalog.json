@@ -1,7 +1,7 @@
 {
   "version": 2,
   "kind": "sorryassets-skills-catalog",
-  "updatedAt": "2026-07-25",
+  "updatedAt": "2026-07-26",
   "repository": "leozejia/sorryassets-skills",
   "repoUrl": "https://github.com/leozejia/sorryassets-skills",
   "install": {
@@ -35,6 +35,20 @@
       },
       "items": [
         "commercial-short"
+      ]
+    },
+    {
+      "id": "remake-video",
+      "title": {
+        "en": "Remake Video",
+        "zh": "复刻视频"
+      },
+      "description": {
+        "en": "Deconstruct a video the creator loves and recreate it faithfully with their own material.",
+        "zh": "拆解创作者喜爱的视频，用他们自己的素材忠实复刻。"
+      },
+      "items": [
+        "remake-short"
       ]
     }
   ],
@@ -434,6 +448,219 @@
             "卖点镜头计划",
             "生成媒体",
             "商业成片"
+          ]
+        },
+        "note": {
+          "en": "Preview contract only; duration, format, style, model, and input roles come from each brief and the live catalog.",
+          "zh": "仅为预览契约；时长、格式、风格、模型和输入角色由每次简报与实时目录决定。"
+        }
+      }
+    },
+    {
+      "id": "remake-short",
+      "name": "remake-short",
+      "version": "1.0.0",
+      "status": "preview",
+      "category": "remake-video",
+      "path": "skills/remake-short",
+      "skillPath": "skills/remake-short/SKILL.md",
+      "package": {
+        "digest": "a4a88216266b473fbca7116e649a757685f3356cf86496ce538c2a04c0c32986",
+        "totalBytes": 87414,
+        "files": [
+          {
+            "path": "prompts/recipe-card.md",
+            "bytes": 1404,
+            "sha256": "2fc92fc1be7a04dddad6aa3b9bb51928eac48ce48f6b2fae886f18103ee17934"
+          },
+          {
+            "path": "prompts/remake-review.md",
+            "bytes": 2198,
+            "sha256": "e049d54a9372e17542e2f204c71adbe5a0dd31fa17c8f6f7bad967a1347c1d16"
+          },
+          {
+            "path": "references/.sync.json",
+            "bytes": 415,
+            "sha256": "1a60d55edd3c1228f7186439fb96cde6efd93e9976d073385479d97dfb32b9ae"
+          },
+          {
+            "path": "references/craft/cinematography.md",
+            "bytes": 9654,
+            "sha256": "17aa9bd22de31d00313ce18c1729681635f851a237c82dd5c2392c244c0c004b"
+          },
+          {
+            "path": "references/craft/deconstruction.md",
+            "bytes": 7150,
+            "sha256": "e313466d0a69c762867edfd8c6e366353a5a9af28c57bf6ad5b2a4f57775709a"
+          },
+          {
+            "path": "references/craft/defects.md",
+            "bytes": 6863,
+            "sha256": "a990c0c886e2ba8d72b3a72ebc5beb22c81144422f4d0d63b1c4a0c0033eb3dc"
+          },
+          {
+            "path": "references/craft/shot-prompt-format.md",
+            "bytes": 5034,
+            "sha256": "a469533608925bc439ce68e6366f6264c17bab4d15527fe6c61a16d8887ea85a"
+          },
+          {
+            "path": "references/models/flux-2-pro.md",
+            "bytes": 2277,
+            "sha256": "b6d31cf04f4552a2e30fa4d7a306fe0d339d76ea966a5ddd5a053990425ab35f"
+          },
+          {
+            "path": "references/models/nano-banana-2.md",
+            "bytes": 2564,
+            "sha256": "bc678f67a95a465615a5eae5ce05c4614d07a38749367663c4c1a98099d0a1b9"
+          },
+          {
+            "path": "references/models/seedance-1.5-pro.md",
+            "bytes": 2966,
+            "sha256": "44b7797bf27a10eef2767dcac3412cc0a0638521167e15df2af9d5afade1e311"
+          },
+          {
+            "path": "references/models/veo-3.1.md",
+            "bytes": 3001,
+            "sha256": "491d7d056372f370b8c9e5dd0470c3e738a3f26f08d25edbdcbb713ff3cd2167"
+          },
+          {
+            "path": "references/stages/character-assets.md",
+            "bytes": 4489,
+            "sha256": "923f6c90e82a52a6f5c61d04613568d5012d28466f1ebc7a6c24cabb7cc97b19"
+          },
+          {
+            "path": "references/stages/continuity.md",
+            "bytes": 3558,
+            "sha256": "6341e54368ea9c41bf59cb5e68f2b14409aa87d43dbd11df27b5af14a8ae4ff0"
+          },
+          {
+            "path": "references/stages/scene-assets.md",
+            "bytes": 3417,
+            "sha256": "93b5adc733608c76e616d89ec7c178f70ab2c0fa231064ddf7b903a6cf0ecc99"
+          },
+          {
+            "path": "references/styles/clean-commercial.md",
+            "bytes": 1696,
+            "sha256": "c8a22a9834a5033490cddc427a98b243d185df600da8178257851abc99c05fd6"
+          },
+          {
+            "path": "references/styles/cyberpunk.md",
+            "bytes": 1567,
+            "sha256": "003abc69de723ab77dc2c745b2ce6dfc624c8cbcb2a3e28e16582403ab3d7132"
+          },
+          {
+            "path": "references/styles/documentary.md",
+            "bytes": 1594,
+            "sha256": "92d03a7b498fbc519430835064b631ea9d75228ef08a8376fa11ed3b5b3e8162"
+          },
+          {
+            "path": "references/styles/pixar.md",
+            "bytes": 1631,
+            "sha256": "7a02a7515426932100f3fa94cc8b5b38263a04845c8902ff885c23add1a7fff2"
+          },
+          {
+            "path": "references/styles/wong-kar-wai.md",
+            "bytes": 1646,
+            "sha256": "010e243588e9670a9004c68df5a938e611b372a0fa6436abad511a1df9bcc928"
+          },
+          {
+            "path": "scripts/assemble-video.mjs",
+            "bytes": 6448,
+            "sha256": "9833bd0fa0b88aa766513a9d02407962a717207829c9b6dd5acabc66cebabdb2"
+          },
+          {
+            "path": "scripts/assemble-video.selftest.mjs",
+            "bytes": 3981,
+            "sha256": "96d6cdae3d5ca83a17ddefe734a66a6568f5b49bf1f0bd762beaf3f8d5a194a6"
+          },
+          {
+            "path": "scripts/extract-frames.mjs",
+            "bytes": 4554,
+            "sha256": "7cf00cdc5d49f0147ea6bfaddb72d2e3bb422ff1f35bf41b929acdb65bc8ca02"
+          },
+          {
+            "path": "scripts/extract-frames.selftest.mjs",
+            "bytes": 3004,
+            "sha256": "674df0fa646397f1f8f8da5ee8815c53c738a2e3fdf8b90effe93af25b7ebc1f"
+          },
+          {
+            "path": "SKILL.md",
+            "bytes": 6303,
+            "sha256": "fe92a372215eba947e8e37cbde7a4d85341cc2cae427cbe786de3185acb4366f"
+          }
+        ],
+        "bundle": {
+          "format": "zip",
+          "url": "https://dl.sorryassets.com/skills/sha256/58d7d8995b3cd0993214e738749a6d1ea0867a03ec543335a39c794969c4b0cf.zip",
+          "bytes": 90698,
+          "sha256": "58d7d8995b3cd0993214e738749a6d1ea0867a03ec543335a39c794969c4b0cf"
+        }
+      },
+      "capabilities": [
+        "image.generate",
+        "video.generate"
+      ],
+      "title": {
+        "en": "Remake Short",
+        "zh": "神还原"
+      },
+      "summary": {
+        "en": "Deconstruct a beloved video into a recipe — intent, emotional mechanism, structure, invariants — then recreate it faithfully with the creator's own material, plus a timed text and music plan.",
+        "zh": "把喜爱的视频拆解成配方——意图、情绪机制、结构、常量——再用创作者自己的素材忠实复刻，并交付带时间码的字幕与音乐方案。"
+      },
+      "bestFor": {
+        "en": "Recreating trending formats and classic scenes with your own pet, product, or face — e.g. your cat re-enacting a famous drama scene.",
+        "zh": "用自己的宠物、产品或形象复刻热门格式和经典桥段——比如让自家猫咪出演名场面。"
+      },
+      "inputs": {
+        "en": [
+          "Reference video, stills, or a described/named scene",
+          "Creator's own material",
+          "Optional fidelity level"
+        ],
+        "zh": [
+          "参考视频、截图或描述/指名的场景",
+          "创作者自己的素材",
+          "可选保真级别"
+        ]
+      },
+      "outputs": {
+        "en": [
+          "Recipe card",
+          "Keyframes from creator material",
+          "Generated shots",
+          "Assembled silent film",
+          "Timed overlay and music plan"
+        ],
+        "zh": [
+          "复刻配方卡",
+          "基于自有素材的关键帧",
+          "生成镜头",
+          "组装成片",
+          "带时间码的字幕与音乐方案"
+        ]
+      },
+      "route": "/skills/remake-short",
+      "install": "npx skills add leozejia/sorryassets-skills --skill remake-short -a codex -a claude-code -g -y",
+      "installTargets": {
+        "codex": "npx skills add leozejia/sorryassets-skills --skill remake-short -a codex -g -y",
+        "claudeCode": "npx skills add leozejia/sorryassets-skills --skill remake-short -a claude-code -g -y"
+      },
+      "proof": {
+        "nodes": {
+          "en": [
+            "reference and recipe card",
+            "creator material",
+            "keyframes",
+            "generated shots",
+            "final remake with overlay plan"
+          ],
+          "zh": [
+            "参考与配方卡",
+            "自有素材",
+            "关键帧",
+            "生成镜头",
+            "成片与字幕方案"
           ]
         },
         "note": {

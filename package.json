@@ -26,7 +26,7 @@
     "bundles:build": "node scripts/package.mjs build",
     "references:sync": "node scripts/sync-references.mjs",
     "references:check": "node scripts/sync-references.mjs --check",
-    "test": "node scripts/sync-references.mjs --check && node scripts/validate.mjs && node scripts/package.selftest.mjs && node skills/narrative-short/scripts/assemble-video.selftest.mjs && node skills/commercial-short/scripts/assemble-video.selftest.mjs"
+    "test": "node scripts/sync-references.mjs --check && node scripts/validate.mjs && node scripts/package.selftest.mjs && node skills/narrative-short/scripts/assemble-video.selftest.mjs && node skills/commercial-short/scripts/assemble-video.selftest.mjs && node skills/remake-short/scripts/assemble-video.selftest.mjs && node skills/remake-short/scripts/extract-frames.selftest.mjs"
   },
   "devDependencies": {
     "yazl": "3.3.1"

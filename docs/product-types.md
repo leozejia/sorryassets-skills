@@ -50,6 +50,27 @@ product X."
   is the single message unmistakable." A narrative Skill would optimize the wrong
   thing.
 
+### remake-short (神还原)
+Faithful recreation of a video the creator loves, using their own material.
+Covers requests like "my cat re-enacting a classic palace-drama scene" or
+"this trending format, but with my dog."
+
+- **Workflow**: capture the reference (file / stills / description / named
+  classic scene) → deconstruct into a recipe card (one-line intent, emotional
+  mechanism, structure timeline, invariants vs replaceable slots, material
+  mapping, feasibility) → import creator material and lock subject fidelity →
+  pin keyframes → minimal-motion generation → assemble → deliver silent film
+  plus a timed text-overlay and music plan → review against the original.
+- **Why distinct**: driven by formula fidelity and effect equivalence — "does
+  the remake preserve what made the original work?" The creative decisions were
+  already made by the original; the judgment is deconstruction accuracy and
+  subject fidelity, which neither narrative-short (story causality) nor
+  commercial-short (product conversion) optimizes.
+- **Why high completion probability**: viral short formats are typically 1–5
+  mostly-static single-subject shots with text and music applied in post —
+  squarely inside current model strengths, avoiding lip-sync, multi-person
+  interaction, and generated text.
+
 ## Style Coverage for the First Batch
 
 Both first-batch Skills share a starter style library (`references/styles/`).
