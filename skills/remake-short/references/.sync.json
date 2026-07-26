@@ -1,0 +1,25 @@
+{
+  "craft": [
+    "cinematography.md",
+    "defects.md",
+    "shot-prompt-format.md"
+  ],
+  "stages": [
+    "character-assets.md",
+    "scene-assets.md",
+    "continuity.md"
+  ],
+  "styles": [
+    "pixar.md",
+    "wong-kar-wai.md",
+    "cyberpunk.md",
+    "documentary.md",
+    "clean-commercial.md"
+  ],
+  "models": [
+    "seedance-1.5-pro.md",
+    "veo-3.1.md",
+    "flux-2-pro.md",
+    "nano-banana-2.md"
+  ]
+}

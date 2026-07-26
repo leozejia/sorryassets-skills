@@ -144,6 +144,11 @@ Skills are cut by finished-product type (see [`ARCHITECTURE.md`](ARCHITECTURE.md
   video: lock product fidelity, land one message, plan sell-point shots, generate
   image-to-video, and close with a call to action. Covers requests like "a
   commercial short for product X."
+- `remake-short` (神还原) — deconstruct a video the creator loves into a recipe
+  (intent, emotional mechanism, structure, invariants) and recreate it
+  faithfully with their own material, delivering the silent film plus a timed
+  text-overlay and music plan. Covers requests like "my cat re-enacting a
+  classic drama scene."
 
 Each Skill is a self-contained thick package: a thin `SKILL.md` skeleton plus an
 on-demand `references/` knowledge layer covering film craft (`craft/`), common
