@@ -1,7 +1,7 @@
 {
   "version": 2,
   "kind": "sorryassets-skills-catalog",
-  "updatedAt": "2026-07-26",
+  "updatedAt": "2026-07-27",
   "repository": "leozejia/sorryassets-skills",
   "repoUrl": "https://github.com/leozejia/sorryassets-skills",
   "install": {
@@ -49,6 +49,20 @@
       },
       "items": [
         "remake-short"
+      ]
+    },
+    {
+      "id": "adaptation-planning",
+      "title": {
+        "en": "Adaptation Planning",
+        "zh": "改编规划"
+      },
+      "description": {
+        "en": "Turn a novel, script, or serial into a producible series plan: format, episode count, character map, and a ready brief per episode.",
+        "zh": "把小说、剧本或连载转化为可制作的剧集规划：格式、集数、角色图谱，以及每集可直接运行的简报。"
+      },
+      "items": [
+        "adaptation-plan"
       ]
     }
   ],
@@ -666,6 +680,126 @@
         "note": {
           "en": "Preview contract only; duration, format, style, model, and input roles come from each brief and the live catalog.",
           "zh": "仅为预览契约；时长、格式、风格、模型和输入角色由每次简报与实时目录决定。"
+        }
+      }
+    },
+    {
+      "id": "adaptation-plan",
+      "name": "adaptation-plan",
+      "version": "1.0.0",
+      "status": "preview",
+      "category": "adaptation-planning",
+      "path": "skills/adaptation-plan",
+      "skillPath": "skills/adaptation-plan/SKILL.md",
+      "package": {
+        "digest": "e12e827cd24866457d384d20d82bd30e95dfc3ef6bcbea3efa02be2bec37a407",
+        "totalBytes": 16927,
+        "files": [
+          {
+            "path": "prompts/adaptation-review.md",
+            "bytes": 1932,
+            "sha256": "ef929b170c835a4c1910f37ef8b871edcabd65d4d7fac3e3893a362a5bd3cf10"
+          },
+          {
+            "path": "prompts/episode-plan.md",
+            "bytes": 1569,
+            "sha256": "81287beaa7e63c7563301a1699d2d22cd596e88943ba6e99fdae38b11a216b87"
+          },
+          {
+            "path": "prompts/format-decision.md",
+            "bytes": 886,
+            "sha256": "d3e11fa3b340d03bc4f92fc271e81ec4c572115251432bf614242d185c2d6d9f"
+          },
+          {
+            "path": "references/.sync.json",
+            "bytes": 3,
+            "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+          },
+          {
+            "path": "references/craft/adaptation.md",
+            "bytes": 7475,
+            "sha256": "50ce7cccb8a4f80b67f198254c027a57fcfacc0971e0cfd17ddffe7243939638"
+          },
+          {
+            "path": "SKILL.md",
+            "bytes": 5062,
+            "sha256": "2b6b23704e12a1b3b3a409f07329cdcc856cd711eb8efd2554210c818c92393a"
+          }
+        ],
+        "bundle": {
+          "format": "zip",
+          "url": "https://dl.sorryassets.com/skills/sha256/46c150b7941db69992e8ef23c6a22e455550250a4369c907a29c47ed983c0b41.zip",
+          "bytes": 17677,
+          "sha256": "46c150b7941db69992e8ef23c6a22e455550250a4369c907a29c47ed983c0b41"
+        }
+      },
+      "capabilities": [],
+      "title": {
+        "en": "Adaptation Plan",
+        "zh": "改编规划"
+      },
+      "summary": {
+        "en": "Turn a novel, script, or serial into a producible series plan: a justified episode count, a character map with identity anchors, act/season structure, per-episode cards with boundary hooks, and a ready-to-run narrative-short brief per episode. Planning deliverable, not video.",
+        "zh": "把小说、剧本或连载转化为可制作的剧集规划：有论证的集数、带身份锚点的角色图谱、分幕/季结构、带钩子的逐集卡片，以及每集可直接运行的 narrative-short 简报。交付规划，不生成视频。"
+      },
+      "bestFor": {
+        "en": "Breaking a long text into episodes with a sensible count and structure, e.g. adapting a web novel into a short-drama series.",
+        "zh": "把长文本拆解成集数合理、结构清晰的剧集，例如把网文改编成短剧系列。"
+      },
+      "inputs": {
+        "en": [
+          "Source text (novel, script, serial)",
+          "Target format",
+          "Intended use and audience"
+        ],
+        "zh": [
+          "源文本（小说、剧本、连载）",
+          "目标格式",
+          "用途与受众"
+        ]
+      },
+      "outputs": {
+        "en": [
+          "Logline and theme",
+          "Format decision and episode-count justification",
+          "Character map with identity anchors",
+          "Per-episode cards with hooks",
+          "A narrative-short brief per episode"
+        ],
+        "zh": [
+          "故事梗概与主题",
+          "格式决策与集数论证",
+          "带身份锚点的角色图谱",
+          "带钩子的逐集卡片",
+          "每集一个 narrative-short 简报"
+        ]
+      },
+      "route": "/skills/adaptation-plan",
+      "install": "npx skills add leozejia/sorryassets-skills --skill adaptation-plan -a codex -a claude-code -g -y",
+      "installTargets": {
+        "codex": "npx skills add leozejia/sorryassets-skills --skill adaptation-plan -a codex -g -y",
+        "claudeCode": "npx skills add leozejia/sorryassets-skills --skill adaptation-plan -a claude-code -g -y"
+      },
+      "proof": {
+        "nodes": {
+          "en": [
+            "source text",
+            "story map and beats",
+            "format and episode count",
+            "character map",
+            "per-episode briefs"
+          ],
+          "zh": [
+            "源文本",
+            "故事图谱与节拍",
+            "格式与集数",
+            "角色图谱",
+            "逐集简报"
+          ]
+        },
+        "note": {
+          "en": "Planning deliverable only; this skill generates no media. Episode format, count, and each episode's production come from the source, the chosen format, and the production skills.",
+          "zh": "仅为规划交付；本技能不生成任何媒体。分集格式、集数和每集的制作由源文本、所选格式和制作类技能决定。"
         }
       }
     }
