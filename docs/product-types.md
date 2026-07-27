@@ -71,6 +71,30 @@ Covers requests like "my cat re-enacting a classic palace-drama scene" or
   squarely inside current model strengths, avoiding lip-sync, multi-person
   interaction, and generated text.
 
+### adaptation-plan (改编规划) — planning skill
+
+Not a production type: a **planning skill** (see ARCHITECTURE.md — Production
+Skills vs Planning Skills). Turns a novel, script, or serial into a producible
+series plan. Covers requests like "turn my web novel into a short-drama series."
+
+- **Deliverable**: a plan, not media — logline and theme, a format decision with
+  a justified episode count, a character map with identity anchors, act/season
+  structure, per-episode cards with boundary hooks, adaptation notes, and one
+  ready-to-run `narrative-short` brief per episode. `capabilities` is empty; it
+  calls no generation binding.
+- **Why a skill, not a stage**: a whole novel cannot enter a single
+  `narrative-short` run. Episode-count and structure reasoning is substantial,
+  stable across sources, and a genuine prerequisite to production. A production
+  stage runs *within* one finished product; this runs *before* many of them.
+- **Why planning, not a finished series**: a vertical short drama is 60–100
+  episodes; even a lean web series is hundreds to thousands of shots with
+  cross-series consistency — not reliably or economically generable today.
+  Delivering the plan honestly beats half-generating an incoherent series. To
+  see one episode move, run `narrative-short` on its brief for a pilot.
+- **Demand**: web-novel-to-short-drama adaptation is one of the largest real
+  AIGC demand pools; the planning bottleneck (how many episodes, where to cut,
+  how to hook) is exactly what creators cannot do unaided.
+
 ## Style Coverage for the First Batch
 
 Both first-batch Skills share a starter style library (`references/styles/`).

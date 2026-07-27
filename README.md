@@ -149,6 +149,10 @@ Skills are cut by finished-product type (see [`ARCHITECTURE.md`](ARCHITECTURE.md
   faithfully with their own material, delivering the silent film plus a timed
   text-overlay and music plan. Covers requests like "my cat re-enacting a
   classic drama scene."
+- `adaptation-plan` (改编规划) — a planning skill (not media): turn a novel,
+  script, or serial into a producible series plan with a justified episode
+  count, a character map, and a ready-to-run `narrative-short` brief per
+  episode. Covers requests like "turn my web novel into a short-drama series."
 
 Each Skill is a self-contained thick package: a thin `SKILL.md` skeleton plus an
 on-demand `references/` knowledge layer covering film craft (`craft/`), common

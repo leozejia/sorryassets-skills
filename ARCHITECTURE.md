@@ -65,6 +65,34 @@ What is **not** an axis:
   as on-demand `references/stages/` files inside each Skill, not as top-level
   Skills.
 
+## Production Skills vs Planning Skills
+
+Most Skills are **production skills**: they take a brief and produce finished
+media (narrative-short, commercial-short, remake-short). These are the ones cut
+by finished-product type above.
+
+A second, smaller class is **planning skills**: they take raw material and
+produce a structured plan that *feeds* a production skill, generating no media
+themselves. `adaptation-plan` is the first — it turns a novel or serial into a
+series plan whose per-episode briefs each become one `narrative-short` run.
+
+A planning skill is justified only when the planning work is itself large,
+reusable across briefs, and a genuine prerequisite that does not fit inside a
+production run. Adaptation qualifies: a whole novel cannot enter a single
+`narrative-short` run, episode-count and structure reasoning is substantial and
+stable across sources, and the output (episode briefs + character map) is
+exactly what production consumes. This is distinct from a **production stage**
+(character, scene, continuity), which lives inside a production Skill's
+`references/stages/` and never stands alone. The test: a stage runs *within* one
+finished product; a planning skill runs *before* many of them.
+
+Planning skills follow the same package rules with two honest differences:
+their `capabilities` are empty (they call no generation binding), and their
+deliverable is text (a plan), not media. They must not bundle generation
+references (models, styles, craft) they never use — doing so is dishonest
+padding. Their handoff to production is a Skill-level pointer, not a bundled
+dependency.
+
 ## Video-First Scope
 
 The current focus is video creation for creators (not developers). The main
