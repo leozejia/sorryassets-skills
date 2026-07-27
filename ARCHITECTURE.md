@@ -238,7 +238,7 @@ which source revision produced a published snapshot and is currently the key the
 desktop uses to identify an installed revision. Per-Skill `version` is the
 human-facing identifier layered on top. Migrating the product surfaces to present
 `version` instead of a git hash is a coordinated change owned by the `sorryassets`
-product repo; see `docs/versioning-adoption.md`.
+product repo; see `docs/HANDOFF.md`.
 
 ## Skill Quality Bar
 
