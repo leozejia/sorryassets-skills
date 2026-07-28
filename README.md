@@ -27,10 +27,9 @@ Before adding or restructuring a Skill, read the construction constitution:
   before these Skills go live.
 
 Each Skill carries a semantic `version` in `catalog.json`; `npm test` enforces
-it. See the Versioning section of `ARCHITECTURE.md` for bump rules.
-
-The Skills listed below are being restructured toward the product-type
-architecture. Until that lands, they remain in their current stage form.
+it. See the Versioning section of `ARCHITECTURE.md` for bump rules. `preview`
+is an installable development-stage label, not a publication gate; release and
+update ordering come only from the per-Skill version.
 
 ## Install
 
